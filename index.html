@@ -581,7 +581,12 @@ function afficherReprise(save){
   document.getElementById('btn-continuer').onclick=()=>{
     document.getElementById('ecran-reprise').style.display='none';
     miseAJourUI();
-    envoyerMessage(`Je reprends l'enquête. Je suis ${G.prenom} ${G.nom}, acte ${G.acte}, à ${G.lieu}. ${G.indices.length} indices collectés. Résume la situation et propose mes options.`);
+    const indicesStr = G.indices.length > 0 ? G.indices.join(' / ') : 'aucun';
+    envoyerMessage(`REPRISE STRICTE — reprends EXACTEMENT là où on s'était arrêtés, dans la même scène, sans rien inventer de nouveau.
+Enquêteur : ${G.prenom} ${G.nom} | Acte ${G.acte}/7 | Lieu : ${G.lieu} | Scènes jouées : ${G.nbScenes}
+Indices collectés (${G.indices.length}) : ${indicesStr}
+Score invisible : ${G.score} | Physique : ${G.stats.physique}/100 | Mental : ${G.stats.mental}/100 | Pression : ${G.stats.pression}/100 | Compréhension du Sphinx : ${G.stats.comprehension}/100
+RÈGLES ABSOLUES : aucune progression automatique, aucun nouvel indice inventé, aucun personnage oublié, aucun lieu qui change sans raison. Reprends la scène exactement là où elle était et propose mes 4 choix.`);
   };
   document.getElementById('btn-nouvelle').onclick=()=>{
     reinitialiser();
@@ -713,6 +718,29 @@ L'IA NE RATTRAPE PAS les erreurs.
 Ce qui est fait est fait. Les conséquences arrivent — parfois immédiatement, parfois deux scènes plus tard.
 Un enquêteur qui ignore un indice ne peut pas y revenir.
 Une relation brûlée avec un informateur reste brûlée.
+
+=== COHÉRENCE ABSOLUE — RÈGLE FONDAMENTALE ===
+
+RÈGLE 1 — MÉMOIRE TOTALE :
+Tu te souviens de TOUT ce qui s'est passé dans cette session sans exception. Aucun personnage ne change d'attitude sans raison narrative. Aucun fait établi ne disparaît. Aucun lieu ne change. Aucun indice déjà trouvé n'est oublié ou réinventé.
+
+RÈGLE 2 — CAUSALITÉ STRICTE :
+Chaque événement est la conséquence directe d'un choix du joueur ou d'un état existant de l'enquête. Interdit : événements sortis de nulle part, coïncidences inexplicables, rebondissements sans cause.
+
+RÈGLE 3 — PERSONNAGES CONSTANTS :
+Chaque personnage secondaire a une psychologie fixe et s'en tient. Un informateur méfiant reste méfiant jusqu'à ce que le joueur gagne sa confiance par une action précise. Un collègue sceptique reste sceptique. Les attitudes ne changent pas sans raison narrative explicite.
+
+RÈGLE 4 — GÉOGRAPHIE COHÉRENTE :
+Marseille est précise et constante. Les lieux nommés existent réellement. Les distances sont réalistes. Le Vieux-Port, les Quartiers Nord, la Canebière, le SRPJ Quai de Rive-Neuve, les Calanques — jamais de lieux inventés ou contradictoires.
+
+RÈGLE 5 — ACTES RESPECTÉS :
+Le Sphinx ne révèle jamais son identité avant l'acte 5. Ce qu'il veut vraiment ne se révèle JAMAIS avant l'acte 5. L'IA ne brûle pas les étapes narratives quelle que soit la pression du joueur.
+
+RÈGLE 6 — SAUVEGARDE STRICTE :
+Le joueur reprend EXACTEMENT là où il était. Aucune progression automatique. Aucun personnage nouveau inventé à la reprise. Aucun indice créé sans action du joueur. La scène reprend au même point, avec les mêmes enjeux, dans le même état.
+
+RÈGLE 7 — INDICES IMMUABLES :
+Les indices déjà collectés sont listés ci-dessus. Ils ne changent pas, ne disparaissent pas, ne se contredisent pas. Tout nouvel indice doit être cohérent avec les précédents. Un indice inventé qui contredit un indice existant est interdit.
 
 === FORMAT CHOIX ===
 Narration (120-180 mots, style Izzo/Harris/Leon)
