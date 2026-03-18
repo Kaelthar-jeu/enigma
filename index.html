@@ -120,10 +120,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .sauv.ok{color:#2a6a2a;}
 .sauv.cours{color:var(--or);}
 
-.main{display:flex;flex:1;gap:14px;padding:14px 0;min-height:0;}
+.main{display:block;flex:1;padding:14px 0;min-height:0;}
 
 /* ── PANNEAU DOSSIER ── */
-.dossier-panel{width:220px;flex-shrink:0;display:flex;flex-direction:column;gap:10px;overflow-y:auto;max-height:calc(100vh - 80px);position:sticky;top:0;}
+.dossier-panel{display:none;}
 .dos-bloc{background:var(--bg2);border:1px solid var(--border);border-top:3px solid var(--bleu);position:relative;z-index:5;}
 .dos-titre{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--bg2);background:var(--bleu);padding:4px 12px;}
 .dos-inner{padding:12px 14px;}
@@ -146,14 +146,29 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .indice-vide{font-family:var(--mono);font-size:10px;color:var(--border2);font-style:italic;}
 
 .btn-prem{width:100%;padding:11px;background:var(--bleu);color:#fff;border:none;font-family:var(--mono);font-size:9px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:background 0.2s;}
+
+/* Panneau déroulant Enigma */
+.eq-panel-btn{background:none;border:1px solid var(--border);color:var(--texte-dim);font-family:var(--mono);font-size:9px;padding:4px 10px;cursor:pointer;transition:all 0.2s;letter-spacing:1px;text-transform:uppercase;}
+.eq-panel-btn:hover{border-color:var(--bleu);color:var(--bleu);}
+#eq-panel{display:none;background:var(--bg3);border-bottom:1px solid var(--border);padding:12px 0;}
+#eq-panel.open{display:block;}
+.eq-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;}
+.eq-title{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--bg2);background:var(--bleu);padding:3px 8px;margin-bottom:8px;}
+.eq-row{display:flex;justify-content:space-between;align-items:center;padding:2px 0;font-size:11px;border-bottom:1px solid var(--border);}
+.eq-row:last-child{border-bottom:none;}
+.eq-key{color:var(--texte-dim);font-family:var(--mono);}
+.eq-val{color:var(--bleu);font-family:var(--mono);font-weight:500;}
+.eq-bar-wrap{background:var(--bg4);height:2px;margin-top:1px;margin-bottom:4px;overflow:hidden;}
+.eq-bar{height:100%;background:var(--bleu);transition:width 0.4s ease;}
+@media(max-width:700px){.eq-inner{grid-template-columns:1fr 1fr;}}
 .btn-prem:hover{background:var(--bleu-clair);}
 
 /* ── PANNEAU JEU ── */
-.jeu-panel{flex:1;display:flex;flex-direction:column;min-width:0;gap:10px;position:relative;z-index:5;}
-#recit{flex:1;background:var(--bg2);border:1px solid var(--border);border-top:3px solid var(--bleu);padding:24px;overflow-y:auto;min-height:0;position:relative;z-index:5;}
+.jeu-panel{flex:1;display:flex;flex-direction:column;min-width:0;position:relative;z-index:5;}
+#recit{flex:1;background:var(--bg2);border:1px solid var(--border);border-top:3px solid var(--bleu);padding:24px;overflow-y:auto;min-height:calc(100svh - 140px);padding-bottom:85px;position:relative;z-index:5;}
 .entree{margin-bottom:22px;animation:fadeIn 0.35s ease;position:relative;z-index:5;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
-.entree p{font-family:var(--serif);font-size:16px;line-height:1.9;color:var(--texte);margin-bottom:10px;}
+.entree p{font-family:var(--serif);font-size:21px;line-height:1.9;color:var(--texte);margin-bottom:10px;}
 .action-joueur{font-family:var(--mono);font-size:11px;color:var(--texte-dim);padding:7px 12px;border-left:3px solid var(--bleu);margin-bottom:12px;background:var(--bg3);}
 
 /* Message du Sphinx */
@@ -174,7 +189,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 /* Choix */
 .choix-bloc{background:var(--bg3);border:1px solid var(--border);border-top:3px solid var(--bleu);padding:14px 16px;margin-top:12px;position:relative;z-index:10;}
 .choix-titre{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--texte-dim);margin-bottom:10px;}
-.choix-btn{display:block;width:100%;text-align:left;background:var(--bg2);border:1px solid var(--border);border-left:3px solid transparent;color:var(--texte);font-family:var(--serif);font-size:14px;padding:12px 14px;margin-bottom:7px;cursor:pointer;transition:all 0.2s;line-height:1.5;position:relative;z-index:10;pointer-events:auto;}
+.choix-btn{display:block;width:100%;text-align:left;background:var(--bg2);border:1px solid var(--border);border-left:3px solid transparent;color:var(--texte);font-family:var(--serif);font-size:18px;padding:13px 14px;margin-bottom:7px;cursor:pointer;transition:all 0.2s;line-height:1.5;position:relative;z-index:10;pointer-events:auto;}
 .choix-btn:hover{background:var(--bleu);color:#fff;border-left-color:rgba(255,255,255,0.5);}
 .choix-btn:last-child{margin-bottom:0;}
 
@@ -194,10 +209,11 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 @media(max-width:700px){
   #app{padding:0 8px;}
   .main{flex-direction:column;gap:8px;padding:8px 0;}
-  .dossier-panel{width:100%;max-height:none;position:static;flex-direction:row;flex-wrap:wrap;gap:8px;overflow:visible;}
+
   .dossier-panel > div{min-width:140px;flex:1;}
-  #recit{min-height:260px;max-height:48vh;padding:14px;}
-  .entree p{font-size:15px;}
+  #recit{min-height:calc(100vh - 160px);padding:16px;padding-bottom:85px;}
+  .entree p{font-size:19px;line-height:1.85;}
+  .choix-btn{font-size:17px;padding:13px 12px;}
   .logo{font-size:16px;}
   .profil-grid{grid-template-columns:1fr;}
   .origine-grid{grid-template-columns:1fr 1fr;}
@@ -432,8 +448,46 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
     <div class="header-droite">
       <div class="acte-tag" id="acte-tag">Acte 1</div>
       <div class="sauv" id="sauv-ind">● prêt</div>
+      <button class="eq-panel-btn" onclick="toggleEqPanel()">Dossier ▾</button>
     </div>
   </header>
+
+  <!-- Panneau déroulant -->
+  <div id="eq-panel">
+    <div class="eq-inner">
+
+      <div>
+        <div class="eq-title">Enquêteur</div>
+        <div style="font-family:var(--mono);font-size:15px;font-weight:500;color:var(--bleu);" id="eq-nom">—</div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--texte-dim);text-transform:uppercase;margin-top:3px;">Commandant — SRPJ Marseille</div>
+        <div class="eq-row" style="margin-top:8px;"><span class="eq-key">Acte</span><span class="eq-val" id="eq-acte">1 / 7</span></div>
+        <div class="eq-row"><span class="eq-key">Scènes</span><span class="eq-val" id="eq-scenes">0</span></div>
+        <div class="eq-row"><span class="eq-key">Lieu</span><span class="eq-val" id="eq-lieu" style="font-size:10px;">Marseille</span></div>
+      </div>
+
+      <div>
+        <div class="eq-title">État</div>
+        <div class="eq-row"><span class="eq-key">Physique</span><span class="eq-val" id="eq-physique">100</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-physique" style="width:100%;"></div></div>
+        <div class="eq-row"><span class="eq-key">Mental</span><span class="eq-val" id="eq-mental">100</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-mental" style="width:100%;"></div></div>
+        <div class="eq-row"><span class="eq-key">Pression hiér.</span><span class="eq-val" id="eq-pression" style="color:var(--rouge);">0</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-pression" style="width:0%;background:var(--rouge);"></div></div>
+        <div class="eq-row"><span class="eq-key">Compréhension</span><span class="eq-val" id="eq-comprehension" style="color:var(--or);">0</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-comprehension" style="width:0%;background:var(--or);"></div></div>
+      </div>
+
+      <div>
+        <div class="eq-title">Indices collectés</div>
+        <div id="eq-indices"><div style="font-size:10px;color:var(--texte-dim);font-style:italic;">Aucun indice encore</div></div>
+        <div style="margin-top:12px;">
+          <button class="btn-prem" onclick="window.location.href='https://buy.stripe.com/test_8x2bJ05fU1yV3uKde1bZe00'">Premium — 7€/mois</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="main">
     <div class="dossier-panel">
 
@@ -629,14 +683,33 @@ function setSI(e){
 }
 
 // ── UI ──
+function toggleEqPanel(){
+  const p=document.getElementById('eq-panel');
+  const b=document.querySelector('.eq-panel-btn');
+  p.classList.toggle('open');
+  if(b)b.textContent=p.classList.contains('open')?'Dossier ▴':'Dossier ▾';
+}
+
 function miseAJourUI(){
   document.getElementById('acte-tag').textContent='Acte '+G.acte;
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  const setW=(id,w,col)=>{const e=document.getElementById(id);if(e){e.style.width=Math.min(100,w)+'%';if(col)e.style.background=col;}};
+  set('eq-nom',`${G.prenom} ${G.nom}`);
+  set('eq-acte',`${G.acte} / 7`);
+  set('eq-scenes',G.nbScenes);
+  set('eq-lieu',G.lieu);
+  const s=G.stats;
+  set('eq-physique',s.physique);setW('eq-b-physique',s.physique,s.physique>50?'var(--bleu)':s.physique>25?'var(--or)':'var(--rouge)');
+  set('eq-mental',s.mental);setW('eq-b-mental',s.mental,s.mental>50?'var(--bleu)':s.mental>25?'var(--or)':'var(--rouge)');
+  set('eq-pression',s.pression);setW('eq-b-pression',Math.min(100,s.pression),'var(--rouge)');
+  set('eq-comprehension',s.comprehension);setW('eq-b-comprehension',Math.min(100,s.comprehension),'var(--or)');
+  const eqInd=document.getElementById('eq-indices');
+  if(eqInd)eqInd.innerHTML=G.indices.length?G.indices.map(it=>`<div class="eq-row"><span class="eq-key">▸ ${it}</span></div>`).join(''):'<div style="font-size:10px;color:var(--texte-dim);font-style:italic;">Aucun indice encore</div>';
   document.getElementById('e-nom').textContent=`${G.prenom} ${G.nom}`;
   document.getElementById('e-acte').textContent=`Acte ${G.acte} · ${G.lieu}`;
   document.getElementById('d-acte').textContent=`${G.acte} / 7`;
   document.getElementById('d-scenes').textContent=G.nbScenes;
   document.getElementById('d-lieu').textContent=G.lieu;
-  const s=G.stats;
   document.getElementById('s-physique').textContent=s.physique;
   document.getElementById('b-physique').style.width=s.physique+'%';
   document.getElementById('b-physique').style.background=s.physique>50?'var(--bleu)':s.physique>25?'var(--or)':'var(--rouge)';
