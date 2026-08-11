@@ -3,176 +3,133 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Enigma</title>
+<title>Enigma — Récit Games</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#f0f0ed;--bg2:#ffffff;--bg3:#e8e8e4;--bg4:#ddddd8;
-  --border:#c8c8c2;--border2:#a8a8a0;
-  --texte:#1a1a18;--texte-dim:#6a6a62;--texte-clair:#000000;
-  --bleu:#1a3a6a;--bleu-clair:#2a5aa0;--bleu-dim:#0e2040;
-  --rouge:#8a1a1a;--or:#8a6a10;
-  --mono:'IBM Plex Mono',monospace;
-  --serif:'IBM Plex Serif',Georgia,serif;
-  --sans:'IBM Plex Sans',sans-serif;
+  --bg:#f5f2eb;--bg2:#ede9e0;--bg3:#e5e0d5;--bg4:#ddd8cc;
+  --border:#ccc8bc;--border2:#b8b4a8;
+  --texte:#2c2820;--texte-dim:#7a7060;--texte-clair:#1a1510;
+  --marron:#5a3a1a;--marron-light:#7a5030;--marron-dim:#3a2010;
+  --doré:#8a6a20;--doré-light:#b08830;
+  --rouge:#8a1010;--vert:#1a5a1a;
+  --mono:'DM Mono',monospace;
+  --serif:'Crimson Pro',Georgia,serif;
 }
-html,body{height:100%;background:var(--bg);color:var(--texte);font-family:var(--serif);font-size:16px;line-height:1.7;overflow-x:hidden;}
-body{background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(0,0,50,0.04) 27px,rgba(0,0,50,0.04) 28px);}
-.studio-bar{background:var(--bleu);padding:7px 16px;text-align:center;}
-.studio-bar a{color:rgba(255,255,255,0.5);font-size:11px;text-decoration:none;letter-spacing:3px;font-family:var(--mono);transition:color 0.2s;}
-.studio-bar a:hover{color:#fff;}
-
-/* INTRO */
-#ecran-intro{position:fixed;inset:0;z-index:300;background:var(--bleu);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;}
-.intro-inner{max-width:520px;width:100%;text-align:center;}
-.intro-ref{font-family:var(--mono);font-size:10px;letter-spacing:4px;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:40px;animation:app 0.8s ease 0.1s both;}
-.intro-titre{font-family:var(--mono);font-size:clamp(64px,18vw,120px);font-weight:500;color:#fff;line-height:0.9;letter-spacing:-2px;animation:app 0.8s ease 0.2s both;}
-.intro-sep{width:1px;height:60px;background:rgba(255,255,255,0.2);margin:28px auto;animation:app 0.8s ease 0.35s both;}
-.intro-accroche{font-family:var(--serif);font-size:14px;font-style:italic;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:48px;animation:app 0.8s ease 0.45s both;}
-.intro-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:app 0.8s ease 0.6s both;}
-.btn-intro-p{background:#fff;border:none;color:var(--bleu);font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:3px;padding:14px 40px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;}
-.btn-intro-p:hover{background:var(--bg3);}
-.btn-intro-s{display:none;background:none;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.5);font-family:var(--mono);font-size:11px;letter-spacing:3px;padding:14px 24px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;}
-.btn-intro-s:hover{border-color:rgba(255,255,255,0.7);color:#fff;}
-@keyframes app{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-
-/* SETUP */
-#ecran-setup{display:none;position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px;background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(0,0,50,0.04) 27px,rgba(0,0,50,0.04) 28px);}
-.setup-wrap{max-width:580px;margin:auto;padding:40px 0;}
-.setup-entete{padding-bottom:20px;margin-bottom:36px;border-bottom:2px solid var(--bleu);}
-.setup-ref{font-family:var(--mono);font-size:9px;letter-spacing:4px;color:var(--texte-dim);text-transform:uppercase;margin-bottom:6px;}
-.setup-titre{font-family:var(--mono);font-size:32px;font-weight:500;color:var(--bleu);letter-spacing:-1px;}
+html,body{height:100%;background:var(--bg);color:var(--texte);font-family:var(--serif);font-size:17px;line-height:1.75;overflow-x:hidden;}
+.studio-bar{background:var(--marron-dim);border-bottom:1px solid var(--marron);padding:7px 16px;text-align:center;}
+.studio-bar a{color:rgba(245,242,235,0.5);font-size:11px;text-decoration:none;letter-spacing:3px;font-family:var(--mono);transition:color 0.2s;}
+.studio-bar a:hover{color:rgba(245,242,235,0.9);}
+#ecran-intro{position:fixed;inset:0;z-index:300;background:var(--marron-dim);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;background-image:radial-gradient(ellipse at 50% 50%,rgba(90,58,26,0.6) 0%,var(--marron-dim) 70%),repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,0.01) 40px,rgba(255,255,255,0.01) 41px);}
+.intro-inner{max-width:480px;width:100%;text-align:center;}
+.intro-tag{font-family:var(--mono);font-size:10px;letter-spacing:5px;color:rgba(245,242,235,0.4);text-transform:uppercase;margin-bottom:32px;animation:fi 0.8s ease 0.1s both;}
+.intro-titre{font-family:var(--serif);font-size:clamp(72px,16vw,130px);font-weight:600;font-style:italic;color:#f5f2eb;line-height:0.85;letter-spacing:-3px;text-shadow:0 4px 40px rgba(0,0,0,0.5);animation:fi 0.8s ease 0.25s both;}
+.intro-sous{font-family:var(--mono);font-size:10px;letter-spacing:5px;color:rgba(176,136,48,0.8);text-transform:uppercase;margin:20px 0 32px;animation:fi 0.8s ease 0.4s both;}
+.intro-sep{display:flex;align-items:center;gap:16px;margin:0 auto 32px;animation:fi 0.8s ease 0.5s both;}
+.intro-sep-line{flex:1;height:1px;background:rgba(255,255,255,0.1);}
+.intro-sep-dia{width:5px;height:5px;background:var(--doré-light);transform:rotate(45deg);}
+.intro-accroche{font-family:var(--serif);font-size:15px;font-style:italic;color:rgba(245,242,235,0.5);line-height:1.9;margin-bottom:48px;animation:fi 0.8s ease 0.6s both;}
+.intro-btns{display:flex;flex-direction:column;align-items:center;gap:10px;animation:fi 0.8s ease 0.75s both;}
+.btn-intro-p{background:var(--doré);border:1px solid var(--doré-light);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:3px;padding:15px 48px;cursor:pointer;text-transform:uppercase;transition:all 0.2s;}
+.btn-intro-p:hover{background:var(--doré-light);}
+.btn-intro-s{background:none;border:none;color:rgba(245,242,235,0.35);font-family:var(--mono);font-size:10px;letter-spacing:2px;cursor:pointer;text-decoration:underline;text-underline-offset:4px;transition:color 0.2s;display:none;}
+.btn-intro-s:hover{color:rgba(245,242,235,0.7);}
+@keyframes fi{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+#ecran-setup{display:none;position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;padding:20px;}
+.setup-inner{max-width:520px;margin:auto;padding:48px 0;}
+.setup-titre{font-family:var(--serif);font-size:36px;font-weight:600;font-style:italic;color:var(--texte-clair);margin-bottom:4px;}
+.setup-sous{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--texte-dim);margin-bottom:40px;}
 .setup-bloc{margin-bottom:28px;}
 .setup-label{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--texte-dim);display:block;margin-bottom:8px;}
-.setup-input{width:100%;background:var(--bg2);border:none;border-bottom:2px solid var(--border2);color:var(--texte-clair);font-family:var(--mono);font-size:14px;padding:10px 0;outline:none;transition:border-color 0.2s;border-radius:0;}
-.setup-input:focus{border-bottom-color:var(--bleu);}
-.setup-input::placeholder{color:var(--border2);}
-.profil-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-.profil-carte{background:var(--bg2);border:2px solid var(--border);padding:14px 12px;cursor:pointer;transition:all 0.2s;text-align:center;}
-.profil-carte:hover{border-color:var(--border2);}
-.profil-carte.sel{border-color:var(--bleu);border-top:3px solid var(--bleu);}
-.profil-nom{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--texte-clair);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
-.profil-desc{font-family:var(--serif);font-size:11px;font-style:italic;color:var(--texte-dim);line-height:1.4;}
-.origine-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.origine-carte{background:var(--bg2);border:2px solid var(--border);padding:12px;cursor:pointer;transition:all 0.2s;}
-.origine-carte:hover{border-color:var(--border2);}
-.origine-carte.sel{border-color:var(--bleu);}
-.origine-nom{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--texte-clair);text-transform:uppercase;letter-spacing:1px;}
-.slider-wrap{display:flex;align-items:center;gap:14px;}
-.slider{flex:1;-webkit-appearance:none;height:2px;background:var(--border2);outline:none;}
-.slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;background:var(--bleu);cursor:pointer;border-radius:50%;}
-.slider-val{font-family:var(--mono);font-size:16px;font-weight:500;color:var(--bleu);min-width:32px;}
-.btn-setup{width:100%;background:var(--bleu);border:none;color:#fff;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:4px;padding:16px;cursor:pointer;transition:background 0.2s;text-transform:uppercase;margin-top:8px;}
-.btn-setup:hover{background:var(--bleu-clair);}
+.setup-input{width:100%;background:#fff;border:1px solid var(--border);border-bottom:2px solid var(--marron);color:var(--texte-clair);font-family:var(--serif);font-size:17px;padding:10px 14px;outline:none;transition:border-color 0.2s;}
+.setup-input:focus{border-bottom-color:var(--doré);}
+.setup-input::placeholder{color:var(--texte-dim);font-style:italic;}
+.enqueteur-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.enqueteur-carte{background:#fff;border:2px solid var(--border);padding:18px;cursor:pointer;transition:all 0.2s;}
+.enqueteur-carte:hover{border-color:var(--border2);}
+.enqueteur-carte.sel{border-color:var(--marron);background:rgba(90,58,26,0.04);}
+.enq-tag{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--doré);text-transform:uppercase;margin-bottom:6px;}
+.enq-nom{font-family:var(--serif);font-size:18px;font-style:italic;color:var(--texte-clair);margin-bottom:5px;}
+.enq-desc{font-size:13px;color:var(--texte-dim);line-height:1.5;}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mode-carte{background:#fff;border:2px solid var(--border);padding:14px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.mode-carte:hover{border-color:var(--border2);}
+.mode-carte.sel{border-color:var(--marron);}
+.mode-nom{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--texte-clair);margin-bottom:3px;letter-spacing:1px;text-transform:uppercase;}
+.mode-desc{font-family:var(--mono);font-size:10px;color:var(--texte-dim);}
+.btn-setup{width:100%;background:var(--marron);border:none;color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:3px;padding:16px;cursor:pointer;text-transform:uppercase;transition:background 0.2s;margin-top:8px;}
+.btn-setup:hover{background:var(--marron-light);}
 .btn-setup:disabled{background:var(--border2);cursor:not-allowed;}
-
-/* REPRISE */
-#ecran-reprise{display:none;position:fixed;inset:0;z-index:250;background:rgba(26,58,106,0.95);align-items:center;justify-content:center;padding:20px;}
-.reprise-box{background:var(--bg2);border-top:4px solid var(--bleu);max-width:440px;width:100%;padding:36px;}
-.reprise-ref{font-family:var(--mono);font-size:9px;letter-spacing:4px;color:var(--texte-dim);text-transform:uppercase;margin-bottom:6px;}
-.reprise-titre{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bleu);margin-bottom:24px;}
-.reprise-info{margin-bottom:24px;border-left:3px solid var(--border);padding-left:16px;}
+#ecran-reprise{display:none;position:fixed;inset:0;z-index:250;background:rgba(26,21,16,0.95);align-items:center;justify-content:center;padding:20px;}
+.reprise-box{background:var(--bg);border:1px solid var(--border2);max-width:420px;width:100%;padding:36px;}
+.reprise-titre{font-family:var(--serif);font-size:26px;font-weight:600;font-style:italic;color:var(--texte-clair);margin-bottom:4px;}
+.reprise-sous{font-family:var(--mono);font-size:10px;color:var(--texte-dim);letter-spacing:2px;margin-bottom:24px;}
+.reprise-info{background:var(--bg2);padding:14px;margin-bottom:24px;border-left:2px solid var(--marron-dim);}
 .reprise-ligne{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;font-family:var(--mono);}
 .reprise-cle{color:var(--texte-dim);}
-.reprise-val{color:var(--bleu);font-weight:500;}
+.reprise-val{color:var(--doré);}
 .reprise-btns{display:flex;gap:10px;}
-.reprise-btn{flex:1;padding:12px;border:none;font-family:var(--mono);font-size:11px;letter-spacing:2px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;}
-.rbp{background:var(--bleu);color:#fff;}
-.rbp:hover{background:var(--bleu-clair);}
-.rbn{background:var(--bg3);color:var(--texte-dim);border:2px solid var(--border);}
-.rbn:hover{border-color:var(--bleu-dim);color:var(--texte);}
-
-/* APP */
-#app{display:flex;flex-direction:column;min-height:100vh;max-width:1160px;margin:0 auto;padding:0 16px;}
-header{display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px;border-bottom:2px solid var(--bleu);flex-shrink:0;}
-.logo{font-family:var(--mono);font-size:20px;font-weight:500;color:var(--bleu);letter-spacing:-1px;}
+.reprise-btn{flex:1;padding:12px;border:none;font-family:var(--mono);font-size:10px;letter-spacing:2px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;}
+.rbp{background:var(--marron);color:#fff;}
+.rbp:hover{background:var(--marron-light);}
+.rbn{background:var(--bg3);color:var(--texte-dim);border:1px solid var(--border2);}
+.rbn:hover{border-color:var(--marron-dim);color:var(--texte);}
+#app{display:flex;flex-direction:column;min-height:100vh;max-width:1100px;margin:0 auto;padding:0 16px;}
+header{display:flex;align-items:center;justify-content:space-between;padding:16px 0 14px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.logo{font-family:var(--serif);font-size:24px;font-weight:600;font-style:italic;color:var(--texte-clair);}
 .header-droite{display:flex;align-items:center;gap:14px;}
-.acte-tag{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--bg2);background:var(--bleu);padding:3px 10px;text-transform:uppercase;}
+.dossier-badge{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--doré);border:1px solid var(--border2);padding:3px 8px;text-transform:uppercase;}
 .sauv{font-family:var(--mono);font-size:10px;color:var(--texte-dim);}
-.sauv.ok{color:#2a6a2a;}
-.sauv.cours{color:var(--or);}
-.main{display:block;flex:1;padding:14px 0;min-height:0;}
-
-/* PANNEAU DOSSIER */
-.dossier-panel{display:none;}
-.dos-bloc{background:var(--bg2);border:1px solid var(--border);border-top:3px solid var(--bleu);position:relative;z-index:5;}
-.dos-titre{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--bg2);background:var(--bleu);padding:4px 12px;}
-.dos-inner{padding:12px 14px;}
-.dos-ligne{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--border);}
-.dos-ligne:last-child{border-bottom:none;}
-.dos-nom{font-family:var(--mono);font-size:10px;color:var(--texte-dim);}
-.dos-val{font-family:var(--mono);font-size:11px;color:var(--bleu);font-weight:500;}
-.dos-barre-wrap{background:var(--bg4);height:2px;margin-top:2px;margin-bottom:5px;overflow:hidden;}
-.dos-barre{height:100%;background:var(--bleu);transition:width 0.4s ease;}
-.dos-barre.rouge{background:var(--rouge);}
-.dos-barre.or{background:var(--or);}
-.enqueteur-bloc{padding:16px 14px;text-align:center;border-top:3px solid var(--bleu);}
-.enq-nom{font-family:var(--mono);font-size:16px;font-weight:500;color:var(--bleu);letter-spacing:-0.5px;}
-.enq-grade{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--texte-dim);text-transform:uppercase;margin-top:3px;}
-.enq-acte{font-family:var(--mono);font-size:9px;color:var(--texte-dim);margin-top:8px;border-top:1px solid var(--border);padding-top:8px;}
-.indice-item{font-family:var(--mono);font-size:10px;color:var(--texte-dim);padding:4px 0;border-bottom:1px solid var(--border);line-height:1.4;}
-.indice-item:last-child{border-bottom:none;}
-.indice-vide{font-family:var(--mono);font-size:10px;color:var(--border2);font-style:italic;}
-.btn-prem{width:100%;padding:11px;background:var(--bleu);color:#fff;border:none;font-family:var(--mono);font-size:9px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:background 0.2s;}
-.btn-prem:hover{background:var(--bleu-clair);}
-
-/* Panneau déroulant */
+.sauv.ok{color:var(--vert);}
+.sauv.cours{color:var(--doré);}
 .eq-panel-btn{background:none;border:1px solid var(--border);color:var(--texte-dim);font-family:var(--mono);font-size:9px;padding:4px 10px;cursor:pointer;transition:all 0.2s;letter-spacing:1px;text-transform:uppercase;}
-.eq-panel-btn:hover{border-color:var(--bleu);color:var(--bleu);}
-#eq-panel{display:none;background:var(--bg3);border-bottom:1px solid var(--border);padding:12px 0;}
+.eq-panel-btn:hover{border-color:var(--marron);color:var(--doré);}
+#eq-panel{display:none;background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 0;}
 #eq-panel.open{display:block;}
 .eq-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;}
-.eq-title{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--bg2);background:var(--bleu);padding:3px 8px;margin-bottom:8px;}
-.eq-row{display:flex;justify-content:space-between;align-items:center;padding:2px 0;font-size:11px;border-bottom:1px solid var(--border);}
-.eq-row:last-child{border-bottom:none;}
+.eq-title{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--doré);border-bottom:1px solid var(--border);padding-bottom:5px;margin-bottom:8px;}
+.eq-row{display:flex;justify-content:space-between;align-items:center;padding:2px 0;font-size:11px;}
 .eq-key{color:var(--texte-dim);font-family:var(--mono);}
-.eq-val{color:var(--bleu);font-family:var(--mono);font-weight:500;}
+.eq-val{color:var(--texte-clair);font-family:var(--mono);font-weight:bold;}
 .eq-bar-wrap{background:var(--bg4);height:2px;margin-top:1px;margin-bottom:4px;overflow:hidden;}
-.eq-bar{height:100%;background:var(--bleu);transition:width 0.4s ease;}
+.eq-bar{height:100%;background:var(--marron);transition:width 0.4s ease;}
 @media(max-width:700px){.eq-inner{grid-template-columns:1fr 1fr;}}
-
-/* JEU */
-.jeu-panel{flex:1;display:flex;flex-direction:column;min-width:0;position:relative;z-index:5;}
-#recit{flex:1;background:var(--bg2);border:1px solid var(--border);border-top:3px solid var(--bleu);padding:24px;overflow-y:auto;min-height:calc(100svh - 140px);padding-bottom:85px;position:relative;z-index:5;}
-.entree{margin-bottom:22px;animation:fadeIn 0.35s ease;position:relative;z-index:5;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
-.entree p{font-family:var(--serif);font-size:21px;line-height:1.9;color:var(--texte);margin-bottom:10px;}
-.action-joueur{font-family:var(--mono);font-size:11px;color:var(--texte-dim);padding:7px 12px;border-left:3px solid var(--bleu);margin-bottom:12px;background:var(--bg3);}
-.sphinx-message{background:var(--bleu);color:#fff;padding:16px 20px;margin:12px 0;border-left:4px solid rgba(255,255,255,0.3);}
-.sphinx-header{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.5);text-transform:uppercase;margin-bottom:8px;}
-.sphinx-texte{font-family:var(--serif);font-size:14px;font-style:italic;color:#fff;line-height:1.8;}
-.scene-rapport{background:var(--bg3);border:1px solid var(--border);border-left:4px solid var(--rouge);padding:16px 20px;margin:12px 0;}
-.scene-header{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--rouge);text-transform:uppercase;margin-bottom:8px;}
-.scene-texte{font-family:var(--serif);font-size:13px;color:var(--texte);line-height:1.7;}
-.maj-stats{font-family:var(--mono);font-size:11px;color:var(--bleu);padding:6px 10px;background:rgba(26,58,106,0.06);border-left:2px solid var(--bleu);margin-top:8px;letter-spacing:1px;}
-.sep{border:none;border-top:1px solid var(--border);margin:14px 0;}
-.curseur{display:inline-block;width:2px;height:14px;background:var(--bleu);animation:clign 0.7s infinite;vertical-align:text-bottom;margin-left:2px;}
+.jeu-panel{flex:1;display:flex;flex-direction:column;min-width:0;}
+.main{display:block;flex:1;padding:14px 0;min-height:0;}
+#recit{flex:1;background:#fff;border:1px solid var(--border);padding:28px;overflow-y:auto;min-height:calc(100svh - 140px);font-family:var(--serif);padding-bottom:85px;}
+.entree{margin-bottom:24px;animation:fadeIn 0.4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
+.entree p{font-size:22px;line-height:1.95;color:var(--texte);margin-bottom:10px;}
+.action-joueur{font-family:var(--mono);font-size:11px;color:var(--texte-dim);padding:8px 14px;border-left:2px solid var(--border2);margin-bottom:14px;letter-spacing:0.5px;background:var(--bg2);}
+.maj-stats{font-family:var(--mono);font-size:11px;color:var(--doré);padding:6px 10px;background:rgba(138,106,32,0.06);border-left:2px solid var(--border2);margin-top:8px;letter-spacing:1px;}
+.indice-bloc{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--doré);padding:14px 16px;margin:12px 0;font-size:14px;font-style:italic;color:var(--texte-dim);}
+.sep{border:none;border-top:1px solid var(--border);margin:16px 0;opacity:0.6;}
+.curseur{display:inline-block;width:2px;height:1em;background:var(--marron);animation:clign 0.8s infinite;vertical-align:text-bottom;margin-left:2px;}
 @keyframes clign{0%,50%{opacity:1;}51%,100%{opacity:0;}}
-.choix-bloc{background:var(--bg3);border:1px solid var(--border);border-top:3px solid var(--bleu);padding:14px 16px;margin-top:12px;position:relative;z-index:10;}
-.choix-titre{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--texte-dim);margin-bottom:10px;}
-.choix-btn{display:block;width:100%;text-align:left;background:var(--bg2);border:1px solid var(--border);border-left:3px solid transparent;color:var(--texte);font-family:var(--serif);font-size:18px;padding:13px 14px;margin-bottom:7px;cursor:pointer;transition:all 0.2s;line-height:1.5;position:relative;z-index:10;pointer-events:auto;}
-.choix-btn:hover{background:var(--bleu);color:#fff;border-left-color:rgba(255,255,255,0.5);}
+.choix-bloc{background:var(--bg2);border:1px solid var(--border);border-top:2px solid var(--marron-dim);padding:16px 18px;margin-top:14px;}
+.choix-titre{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--texte-dim);margin-bottom:12px;}
+.choix-btn{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--border);color:var(--texte);font-family:var(--serif);font-size:19px;padding:14px 16px;margin-bottom:8px;cursor:pointer;transition:all 0.2s;line-height:1.5;}
+.choix-btn:hover{background:var(--bg2);border-color:var(--marron);color:var(--texte-clair);}
 .choix-btn:last-child{margin-bottom:0;}
-.fin-bloc{border:2px solid var(--bleu);padding:24px;margin:12px 0;text-align:center;}
-.fin-type{font-family:var(--mono);font-size:11px;letter-spacing:3px;color:var(--texte-dim);text-transform:uppercase;margin-bottom:12px;}
-.fin-titre{font-family:var(--mono);font-size:22px;font-weight:500;color:var(--bleu);margin-bottom:16px;}
-.fin-texte{font-family:var(--serif);font-size:14px;font-style:italic;color:var(--texte);line-height:1.8;}
+.input-zone{display:flex;gap:8px;flex-shrink:0;position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:1px solid var(--border);padding:10px 16px;z-index:100;max-width:1100px;margin:0 auto;box-sizing:border-box;}
+#input-joueur{flex:1;background:#fff;border:1px solid var(--border);border-bottom:2px solid var(--marron-dim);color:var(--texte);font-family:var(--serif);font-size:15px;padding:12px 14px;resize:none;height:52px;outline:none;transition:border-color 0.2s;}
+#input-joueur:focus{border-bottom-color:var(--marron);}
+#input-joueur::placeholder{color:var(--texte-dim);font-style:italic;}
+#btn-envoyer{background:var(--marron);border:none;color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:2px;padding:0 18px;cursor:pointer;transition:background 0.2s;flex-shrink:0;text-transform:uppercase;}
+#btn-envoyer:hover{background:var(--marron-light);}
+#btn-envoyer:disabled{background:var(--border2);cursor:not-allowed;}
 ::-webkit-scrollbar{width:4px;}
-::-webkit-scrollbar-track{background:var(--bg3);}
+::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--border2);}
-::-webkit-scrollbar-thumb:hover{background:var(--bleu);}
+::-webkit-scrollbar-thumb:hover{background:var(--marron-dim);}
 @media(max-width:700px){
   #app{padding:0 8px;}
-  .main{flex-direction:column;gap:8px;padding:8px 0;}
-  #recit{min-height:calc(100vh - 160px);padding:16px;padding-bottom:85px;}
+  #recit{padding:16px;padding-bottom:85px;}
   .entree p{font-size:19px;line-height:1.85;}
-  .choix-btn{font-size:17px;padding:13px 12px;}
-  .logo{font-size:16px;}
-  .profil-grid{grid-template-columns:1fr;}
-  .origine-grid{grid-template-columns:1fr 1fr;}
+  .choix-btn{font-size:17px;padding:12px;}
+  .logo{font-size:18px;}
 }
 </style>
 </head>
@@ -182,486 +139,434 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
   <a href="https://recitgames.vercel.app">&#9664; RÉCIT GAMES</a>
 </div>
 
-<!-- INTRO -->
 <div id="ecran-intro">
-  <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:0;" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="ciel-e" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#080c14"/><stop offset="60%" stop-color="#0e1520"/><stop offset="100%" stop-color="#141c2a"/></linearGradient>
-      <radialGradient id="lune-e" cx="70%" cy="15%" r="8%"><stop offset="0%" stop-color="rgba(200,210,230,0.15)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-    </defs>
-    <rect width="800" height="600" fill="url(#ciel-e)"/><rect width="800" height="600" fill="url(#lune-e)"/>
-    <circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.4)"/><circle cx="320" cy="55" r="1" fill="rgba(255,255,255,0.5)"/><circle cx="620" cy="45" r="1" fill="rgba(255,255,255,0.4)"/>
-    <circle cx="580" cy="80" r="18" fill="rgba(200,210,230,0.12)"/>
-    <ellipse cx="650" cy="240" rx="80" ry="50" fill="#0a0e16"/>
-    <rect x="636" y="190" width="8" height="60" fill="#0c1018"/><rect x="628" y="195" width="24" height="6" fill="#0c1018"/>
-    <rect x="0" y="280" width="60" height="200" fill="#0c1018"/><rect x="55" y="260" width="45" height="220" fill="#0e1220"/>
-    <rect x="0" y="380" width="800" height="20" fill="#0e1420"/>
-    <rect x="0" y="400" width="800" height="200" fill="#0a1018"/>
-    <rect x="100" y="370" width="80" height="14" rx="3" fill="#0c1018"/><rect x="300" y="372" width="60" height="12" rx="3" fill="#0d1120"/>
-    <line x1="150" y1="378" x2="150" y2="340" stroke="#1a2030" stroke-width="2"/><circle cx="150" cy="339" r="4" fill="rgba(255,220,120,0.6)"/>
-    <rect x="388" y="348" width="10" height="28" fill="#080c14" rx="2"/><circle cx="393" cy="344" r="6" fill="#080c14"/>
-    <line x1="250" y1="378" x2="380" y2="375" stroke="rgba(255,220,0,0.3)" stroke-width="1.5" stroke-dasharray="6,4"/>
-    <radialGradient id="vig-e" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="transparent"/><stop offset="100%" stop-color="rgba(6,8,14,0.7)"/></radialGradient>
-    <rect width="800" height="600" fill="url(#vig-e)"/>
-  </svg>
-
-  <div class="intro-inner" style="position:relative;z-index:1;">
-    <div class="intro-ref">SRPJ Marseille · Affaire classifiée · Roman interactif</div>
-    <div class="intro-titre">ENIGMA</div>
-    <div class="intro-sep"></div>
-    <div class="intro-accroche">Un tueur. Des énigmes. Marseille.<br>Trois fins possibles.<br>Aucune indulgence.</div>
+  <div class="intro-inner">
+    <div class="intro-tag">Récit Games · Enquête · Roman interactif</div>
+    <div class="intro-titre">Enigma</div>
+    <div class="intro-sous">L'enquêteur devient suspect</div>
+    <div class="intro-sep">
+      <div class="intro-sep-line"></div>
+      <div class="intro-sep-dia"></div>
+      <div class="intro-sep-line"></div>
+    </div>
+    <div class="intro-accroche">
+      Une villa isolée. Sept invités.<br>
+      Un mort avant le dîner.<br>
+      Et toi — qui n'aurais pas dû être là.
+    </div>
     <div class="intro-btns">
-      <button class="btn-intro-p" onclick="afficherSetup()">Ouvrir le dossier</button>
-      <button class="btn-intro-s" id="btn-reprendre-intro" onclick="clicReprendre()">Reprendre l'enquête</button>
+      <button class="btn-intro-p" onclick="afficherSetup()">Mener l'enquête</button>
+      <button class="btn-intro-s" id="btn-reprendre-intro" onclick="clicReprendre()">Reprendre ma partie</button>
     </div>
   </div>
 </div>
 
-<!-- SETUP -->
 <div id="ecran-setup">
-  <div class="setup-wrap">
-    <div class="setup-entete">
-      <div class="setup-ref">SRPJ Marseille — Section criminelle</div>
-      <div class="setup-titre">ENIGMA</div>
-    </div>
-
+  <div class="setup-inner">
+    <div class="setup-titre">Enigma</div>
+    <div class="setup-sous">Configuration — Récit Games</div>
     <div class="setup-bloc">
-      <label class="setup-label">Prénom de l'enquêteur</label>
-      <input class="setup-input" type="text" id="prenom-input" placeholder="Prénom..." maxlength="20"/>
+      <label class="setup-label">Ton prénom</label>
+      <input class="setup-input" type="text" id="prenom-input" placeholder="Ton prénom..." maxlength="20"/>
     </div>
-
     <div class="setup-bloc">
-      <label class="setup-label">Nom</label>
-      <input class="setup-input" type="text" id="nom-input" placeholder="Nom de famille..." maxlength="20"/>
-    </div>
-
-    <div class="setup-bloc">
-      <label class="setup-label">Âge</label>
-      <div class="slider-wrap">
-        <input type="range" class="slider" id="age-slider" min="35" max="52" value="42"/>
-        <span class="slider-val" id="age-val">42</span>
-      </div>
-    </div>
-
-    <div class="setup-bloc">
-      <label class="setup-label">Origine</label>
-      <div class="origine-grid">
-        <div class="origine-carte" id="orig-marseillais" onclick="choisirOrigine('Marseillais de souche')"><div class="origine-nom">Marseillais de souche</div></div>
-        <div class="origine-carte" id="orig-mute" onclick="choisirOrigine('Muté du nord')"><div class="origine-nom">Muté du nord</div></div>
-        <div class="origine-carte" id="orig-piednoir" onclick="choisirOrigine('Origine pied-noir')"><div class="origine-nom">Origine pied-noir</div></div>
-        <div class="origine-carte" id="orig-autre" onclick="choisirOrigine('Autre origine')"><div class="origine-nom">Autre origine</div></div>
-      </div>
-    </div>
-
-    <div class="setup-bloc">
-      <label class="setup-label">Profil d'enquête</label>
-      <div class="profil-grid">
-        <div class="profil-carte" id="profil-intuitif" onclick="choisirProfil('intuitif')">
-          <div class="profil-nom">L'Intuitif</div>
-          <div class="profil-desc">Sent avant de comprendre. En avance sur les preuves — parfois dans le vide.</div>
+      <label class="setup-label">Ton profil d'enquêteur</label>
+      <div class="enqueteur-grid">
+        <div class="enqueteur-carte" id="enq-psychologue" onclick="choisirEnqueteur('psychologue')">
+          <div class="enq-tag">Psychologie</div>
+          <div class="enq-nom">Le Psychologue</div>
+          <div class="enq-desc">Tu lis les gens mieux que les preuves. Mais tu es trop impliqué émotionnellement.</div>
         </div>
-        <div class="profil-carte" id="profil-methodique" onclick="choisirProfil('methodique')">
-          <div class="profil-nom">Le Méthodique</div>
-          <div class="profil-desc">Ne croit que ce qu'il peut prouver. Lent mais solide.</div>
+        <div class="enqueteur-carte" id="enq-ancien-flic" onclick="choisirEnqueteur('ancien-flic')">
+          <div class="enq-tag">Méthode</div>
+          <div class="enq-nom">L'Ancien flic</div>
+          <div class="enq-desc">Preuves, timeline, procédure. Moins intuitif mais plus rigoureux.</div>
         </div>
-        <div class="profil-carte" id="profil-psychologue" onclick="choisirProfil('psychologue')">
-          <div class="profil-nom">Le Psychologue</div>
-          <div class="profil-desc">Cherche à comprendre le tueur. Voit les patterns. Vulnérable à la manipulation.</div>
+        <div class="enqueteur-carte" id="enq-journaliste" onclick="choisirEnqueteur('journaliste')">
+          <div class="enq-tag">Investigation</div>
+          <div class="enq-nom">La Journaliste</div>
+          <div class="enq-desc">Tu poses les bonnes questions. Mais ta présence ici n'est pas innocente.</div>
+        </div>
+        <div class="enqueteur-carte" id="enq-medecin" onclick="choisirEnqueteur('medecin')">
+          <div class="enq-tag">Médico-légal</div>
+          <div class="enq-nom">Le Médecin légiste</div>
+          <div class="enq-desc">Tu vois ce que personne d'autre ne voit sur le corps. Mais tu connais la victime.</div>
         </div>
       </div>
     </div>
-
-    <button class="btn-setup" id="btn-lancer" onclick="lancerJeu()" disabled>Ouvrir l'enquête</button>
+    <div class="setup-bloc">
+      <label class="setup-label">Mode d'interaction</label>
+      <div class="mode-grid">
+        <div class="mode-carte sel" id="mode-boutons" onclick="choisirMode('boutons')">
+          <div class="mode-nom">Boutons</div>
+          <div class="mode-desc">4 choix proposés</div>
+        </div>
+        <div class="mode-carte" id="mode-libre" onclick="choisirMode('libre')">
+          <div class="mode-nom">Libre</div>
+          <div class="mode-desc">Tu décides</div>
+        </div>
+      </div>
+    </div>
+    <button class="btn-setup" id="btn-lancer" onclick="lancerJeu()" disabled>Entrer dans la villa</button>
     <p style="font-family:var(--mono);font-size:10px;color:var(--texte-dim);text-align:center;margin-top:12px;letter-spacing:1px;">Progression sauvegardée automatiquement</p>
   </div>
 </div>
 
-<!-- REPRISE -->
 <div id="ecran-reprise">
   <div class="reprise-box">
-    <div class="reprise-ref">Dossier en cours</div>
-    <div class="reprise-titre">ENIGMA</div>
+    <div class="reprise-titre">Enigma</div>
+    <div class="reprise-sous">Partie sauvegardée</div>
     <div class="reprise-info" id="reprise-info"></div>
     <div class="reprise-btns">
-      <button class="reprise-btn rbp" id="btn-continuer">Reprendre</button>
-      <button class="reprise-btn rbn" id="btn-nouvelle">Nouvelle enquête</button>
+      <button class="reprise-btn rbp" id="btn-continuer">Continuer</button>
+      <button class="reprise-btn rbn" id="btn-nouvelle">Nouvelle partie</button>
     </div>
   </div>
 </div>
 
-<!-- APP -->
 <div id="app">
   <header>
-    <div class="logo">ENIGMA</div>
+    <div class="logo">Enigma</div>
     <div class="header-droite">
-      <div class="acte-tag" id="acte-tag">Acte 1</div>
+      <div class="dossier-badge" id="dossier-badge">Acte I</div>
       <div class="sauv" id="sauv-ind">● prêt</div>
       <button class="eq-panel-btn" onclick="toggleEqPanel()">Dossier ▾</button>
     </div>
   </header>
 
-  <!-- Panneau déroulant -->
   <div id="eq-panel">
     <div class="eq-inner">
       <div>
         <div class="eq-title">Enquêteur</div>
-        <div style="font-family:var(--mono);font-size:15px;font-weight:500;color:var(--bleu);" id="eq-nom">—</div>
-        <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--texte-dim);text-transform:uppercase;margin-top:3px;">Commandant — SRPJ Marseille</div>
-        <div class="eq-row" style="margin-top:8px;"><span class="eq-key">Acte</span><span class="eq-val" id="eq-acte">1 / 7</span></div>
-        <div class="eq-row"><span class="eq-key">Scènes</span><span class="eq-val" id="eq-scenes">0</span></div>
-        <div class="eq-row"><span class="eq-key">Lieu</span><span class="eq-val" id="eq-lieu" style="font-size:10px;">Marseille</span></div>
+        <div style="font-family:var(--serif);font-size:16px;font-style:italic;color:var(--texte-clair);" id="eq-nom">—</div>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--doré);letter-spacing:2px;text-transform:uppercase;margin-top:3px;" id="eq-profil">—</div>
+        <div class="eq-row" style="margin-top:8px;"><span class="eq-key">Acte</span><span class="eq-val" id="eq-acte">I</span></div>
+        <div class="eq-row"><span class="eq-key">Lieu</span><span class="eq-val" id="eq-lieu" style="font-size:10px;">Villa Morel</span></div>
+        <div class="eq-row"><span class="eq-key">Heure</span><span class="eq-val" id="eq-heure">18h00</span></div>
+        <div class="eq-row"><span class="eq-key">Choix</span><span class="eq-val" id="eq-choix">0</span></div>
+      </div>
+      <div>
+        <div class="eq-title">Compétences</div>
+        <div class="eq-row"><span class="eq-key">Observation</span><span class="eq-val" id="eq-observation">50</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-observation" style="width:50%;"></div></div>
+        <div class="eq-row"><span class="eq-key">Psychologie</span><span class="eq-val" id="eq-psychologie">40</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-psychologie" style="width:40%;background:var(--doré);"></div></div>
+        <div class="eq-row"><span class="eq-key">Persuasion</span><span class="eq-val" id="eq-persuasion">40</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-persuasion" style="width:40%;background:var(--vert);"></div></div>
+        <div class="eq-row"><span class="eq-key">Déduction</span><span class="eq-val" id="eq-deduction">50</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-deduction" style="width:50%;background:#6a4a8a;"></div></div>
       </div>
       <div>
         <div class="eq-title">État</div>
-        <div class="eq-row"><span class="eq-key">Physique</span><span class="eq-val" id="eq-physique">100</span></div>
-        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-physique" style="width:100%;"></div></div>
-        <div class="eq-row"><span class="eq-key">Mental</span><span class="eq-val" id="eq-mental">100</span></div>
-        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-mental" style="width:100%;"></div></div>
-        <div class="eq-row"><span class="eq-key">Pression hiér.</span><span class="eq-val" id="eq-pression" style="color:var(--rouge);">0</span></div>
-        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-pression" style="width:0%;background:var(--rouge);"></div></div>
-        <div class="eq-row"><span class="eq-key">Compréhension</span><span class="eq-val" id="eq-comprehension" style="color:var(--or);">0</span></div>
-        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-comprehension" style="width:0%;background:var(--or);"></div></div>
+        <div class="eq-row"><span class="eq-key">Méfiance sur toi</span><span class="eq-val" id="eq-mefiance">0</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-mefiance" style="width:0%;background:var(--rouge);"></div></div>
+        <div class="eq-row"><span class="eq-key">Crédit</span><span class="eq-val" id="eq-credit">70</span></div>
+        <div class="eq-bar-wrap"><div class="eq-bar" id="eq-b-credit" style="width:70%;background:var(--doré);"></div></div>
+        <div class="eq-title" style="margin-top:10px;">Indices</div>
+        <div id="eq-indices"><div style="font-size:11px;color:var(--texte-dim);font-style:italic;">Aucun</div></div>
       </div>
       <div>
-        <div class="eq-title">Indices collectés</div>
-        <div id="eq-indices"><div style="font-size:10px;color:var(--texte-dim);font-style:italic;">Aucun indice encore</div></div>
+        <div class="eq-title">Suspects</div>
+        <div id="eq-suspects"><div style="font-size:11px;color:var(--texte-dim);font-style:italic;">Non identifiés</div></div>
         <div style="margin-top:12px;">
-          <button class="btn-prem" onclick="afficherSaisieCode()">Premium — 7€/mois</button>
+          <button style="width:100%;padding:10px;background:var(--marron-dim);color:#f5f2eb;border:none;font-family:var(--mono);font-size:9px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;" onclick="afficherSaisieCode()">Premium — 7€/mois</button>
         </div>
       </div>
     </div>
   </div>
 
   <div class="main">
-    <div class="dossier-panel">
-      <div class="dos-bloc enqueteur-bloc">
-        <div class="enq-nom" id="e-nom">—</div>
-        <div class="enq-grade">Commandant — SRPJ Marseille</div>
-        <div class="enq-acte" id="e-acte">Acte 1 · Marseille</div>
-      </div>
-      <div class="dos-bloc">
-        <div class="dos-titre">État de l'enquête</div>
-        <div class="dos-inner">
-          <div class="dos-ligne"><span class="dos-nom">Acte</span><span class="dos-val" id="d-acte">1 / 7</span></div>
-          <div class="dos-ligne"><span class="dos-nom">Scènes</span><span class="dos-val" id="d-scenes">0</span></div>
-          <div class="dos-ligne"><span class="dos-nom">Lieu</span><span class="dos-val" id="d-lieu" style="font-size:9px;">Marseille</span></div>
-        </div>
-      </div>
-      <div class="dos-bloc">
-        <div class="dos-titre">Enquêteur</div>
-        <div class="dos-inner">
-          <div class="dos-ligne"><span class="dos-nom">État physique</span><span class="dos-val" id="s-physique">100</span></div>
-          <div class="dos-barre-wrap"><div class="dos-barre" id="b-physique" style="width:100%"></div></div>
-          <div class="dos-ligne"><span class="dos-nom">État mental</span><span class="dos-val" id="s-mental">100</span></div>
-          <div class="dos-barre-wrap"><div class="dos-barre" id="b-mental" style="width:100%"></div></div>
-          <div class="dos-ligne"><span class="dos-nom">Pression hiérarchie</span><span class="dos-val" id="s-pression">0</span></div>
-          <div class="dos-barre-wrap"><div class="dos-barre rouge" id="b-pression" style="width:0%"></div></div>
-          <div class="dos-ligne"><span class="dos-nom">Compréhension Sphinx</span><span class="dos-val" id="s-comprehension">0</span></div>
-          <div class="dos-barre-wrap"><div class="dos-barre or" id="b-comprehension" style="width:0%"></div></div>
-        </div>
-      </div>
-      <div class="dos-bloc">
-        <div class="dos-titre">Indices collectés</div>
-        <div class="dos-inner"><div id="indices-liste"><div class="indice-vide">Aucun indice encore</div></div></div>
-      </div>
-      <div class="dos-bloc" style="padding:10px 14px;">
-        <button class="btn-prem" onclick="afficherSaisieCode()">Premium — 7€/mois</button>
-      </div>
-    </div>
-
     <div class="jeu-panel">
       <div id="recit"></div>
+      <div class="input-zone">
+        <textarea id="input-joueur" placeholder="Que fais-tu ? (Entrée pour envoyer)"></textarea>
+        <button id="btn-envoyer">Enquêter</button>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
 const G = {
-  prenom:'', nom:'', age:42, origine:'', profil:'',
-  acte:1, lieu:'Marseille', nbChoix:0, nbScenes:0,
-  indices:[], historique:[], saveTO:null, adminMode:false,
-  stats:{ physique:100, mental:100, pression:0, comprehension:0 },
-  score:0
+  prenom:'', enqueteur:'', mode:'boutons',
+  acte:'I', lieu:'Villa Morel', heure:'18h00', nbChoix:0,
+  observation:50, psychologie:40, persuasion:40, deduction:50,
+  mefiance:0, credit:70,
+  indices:[], suspects:[], inventaire:[], historique:[], saveTO:null,
+  adminMode:false
 };
-const PAYWALL = 20;
+const PAYWALL=20;
+const PROFILS={
+  psychologue:{observation:60,psychologie:80,persuasion:60,deduction:50},
+  'ancien-flic':{observation:70,psychologie:40,persuasion:50,deduction:80},
+  journaliste:{observation:60,psychologie:50,persuasion:70,deduction:60},
+  medecin:{observation:80,psychologie:50,persuasion:40,deduction:70}
+};
+const PROFILS_LABEL={psychologue:'Psychologue',['ancien-flic']:'Ancien inspecteur',journaliste:'Journaliste',medecin:'Médecin légiste'};
 
-function afficherSetup(){
-  document.getElementById('ecran-intro').style.display='none';
-  document.getElementById('ecran-setup').style.display='block';
-  const save=charger();
-  if(save){
-    if(save.prenom)document.getElementById('prenom-input').value=save.prenom;
-    if(save.nom)document.getElementById('nom-input').value=save.nom;
-    if(save.age){document.getElementById('age-slider').value=save.age;document.getElementById('age-val').textContent=save.age;}
-    if(save.origine)choisirOrigine(save.origine);
-    if(save.profil)choisirProfil(save.profil);
-  }
-}
-function choisirOrigine(o){
-  G.origine=o;
-  document.querySelectorAll('.origine-carte').forEach(c=>c.classList.remove('sel'));
-  const map={'Marseillais de souche':'marseillais','Muté du nord':'mute','Origine pied-noir':'piednoir','Autre origine':'autre'};
-  const el=document.getElementById('orig-'+map[o]);if(el)el.classList.add('sel');
+function afficherSetup(){document.getElementById('ecran-intro').style.display='none';document.getElementById('ecran-setup').style.display='block';}
+function choisirEnqueteur(e){
+  G.enqueteur=e;
+  document.querySelectorAll('.enqueteur-carte').forEach(c=>c.classList.remove('sel'));
+  document.getElementById('enq-'+e).classList.add('sel');
+  const sk=PROFILS[e];if(sk){G.observation=sk.observation;G.psychologie=sk.psychologie;G.persuasion=sk.persuasion;G.deduction=sk.deduction;}
   verifierSetup();
 }
-function choisirProfil(p){
-  G.profil=p;document.querySelectorAll('.profil-carte').forEach(c=>c.classList.remove('sel'));
-  document.getElementById('profil-'+p).classList.add('sel');verifierSetup();
+function choisirMode(m){
+  G.mode=m;
+  document.querySelectorAll('.mode-carte').forEach(c=>c.classList.remove('sel'));
+  document.getElementById('mode-'+m).classList.add('sel');
+  document.getElementById('input-joueur').style.display=m==='boutons'?'none':'flex';
 }
-function verifierSetup(){document.getElementById('btn-lancer').disabled=!(G.origine&&G.profil);}
-document.getElementById('age-slider').addEventListener('input',function(){G.age=parseInt(this.value);document.getElementById('age-val').textContent=this.value;});
+function verifierSetup(){document.getElementById('btn-lancer').disabled=!(G.enqueteur&&document.getElementById('prenom-input').value.trim());}
+document.getElementById('prenom-input').addEventListener('input',verifierSetup);
 
 function lancerJeu(){
-  if(!G.origine){alert('Choisis ton origine.');return;}
-  if(!G.profil){alert('Choisis ton profil.');return;}
-  G.prenom=document.getElementById('prenom-input').value.trim()||'Martin';
-  G.nom=document.getElementById('nom-input').value.trim()||'Ferraud';
-  G.age=parseInt(document.getElementById('age-slider').value);
+  G.prenom=document.getElementById('prenom-input').value.trim()||'Alexis';
   const save=charger();
-  if(save&&save.historique&&save.historique.length>0){
-    fromSave(save);document.getElementById('ecran-setup').style.display='none';afficherReprise(save);return;
-  }
+  if(save&&save.historique&&save.historique.length>0&&save.enqueteur===G.enqueteur){fromSave(save);document.getElementById('ecran-setup').style.display='none';afficherReprise(save);return;}
   document.getElementById('ecran-setup').style.display='none';
+  if(G.mode==='boutons')document.getElementById('input-joueur').style.display='none';
   miseAJourUI();envoyerPremier();
 }
 function clicReprendre(){
   const save=charger();if(!save){afficherSetup();return;}
   document.getElementById('ecran-intro').style.display='none';afficherSetup();
+  setTimeout(()=>{if(save.enqueteur)choisirEnqueteur(save.enqueteur);if(save.prenom)document.getElementById('prenom-input').value=save.prenom;if(save.mode)choisirMode(save.mode);},100);
 }
 function afficherReprise(save){
-  const d1=new Date(save.date),d2=new Date();const h=Math.floor((d2-d1)/3600000),jr=Math.floor(h/24);const abs=jr>0?`${jr}j`:h>0?`${h}h`:'Récent';
+  const d1=new Date(save.date),d2=new Date();
+  const h=Math.floor((d2-d1)/3600000),jr=Math.floor(h/24);
+  const abs=jr>0?`${jr}j`:h>0?`${h}h`:'Récent';
   document.getElementById('reprise-info').innerHTML=`
-    <div class="reprise-ligne"><span class="reprise-cle">Enquêteur</span><span class="reprise-val">${save.prenom} ${save.nom}</span></div>
-    <div class="reprise-ligne"><span class="reprise-cle">Profil</span><span class="reprise-val">${save.profil}</span></div>
-    <div class="reprise-ligne"><span class="reprise-cle">Acte</span><span class="reprise-val">${save.acte} / 7</span></div>
+    <div class="reprise-ligne"><span class="reprise-cle">Enquêteur</span><span class="reprise-val">${save.prenom}</span></div>
+    <div class="reprise-ligne"><span class="reprise-cle">Profil</span><span class="reprise-val">${PROFILS_LABEL[save.enqueteur]||save.enqueteur}</span></div>
+    <div class="reprise-ligne"><span class="reprise-cle">Acte</span><span class="reprise-val">${save.acte}</span></div>
+    <div class="reprise-ligne"><span class="reprise-cle">Heure</span><span class="reprise-val">${save.heure}</span></div>
     <div class="reprise-ligne"><span class="reprise-cle">Indices</span><span class="reprise-val">${(save.indices||[]).length}</span></div>
     <div class="reprise-ligne"><span class="reprise-cle">Absent</span><span class="reprise-val">${abs}</span></div>`;
   document.getElementById('ecran-reprise').style.display='flex';
   document.getElementById('btn-continuer').onclick=()=>{
-    document.getElementById('ecran-reprise').style.display='none';miseAJourUI();
-    const indicesStr=G.indices.length>0?G.indices.join(' / '):'aucun';
-    envoyerMessage(`REPRISE STRICTE — reprends EXACTEMENT là où on s'était arrêtés, dans la même scène, sans rien inventer de nouveau.
-Enquêteur : ${G.prenom} ${G.nom} | Acte ${G.acte}/7 | Lieu : ${G.lieu} | Scènes jouées : ${G.nbScenes}
-Indices collectés (${G.indices.length}) : ${indicesStr}
-Score invisible : ${G.score} | Physique : ${G.stats.physique}/100 | Mental : ${G.stats.mental}/100 | Pression : ${G.stats.pression}/100 | Compréhension : ${G.stats.comprehension}/100
-RÈGLES ABSOLUES : aucune progression automatique, aucun nouvel indice inventé. Reprends la scène exactement là où elle était et propose mes 4 choix.`);
+    document.getElementById('ecran-reprise').style.display='none';
+    if(G.mode==='boutons')document.getElementById('input-joueur').style.display='none';
+    miseAJourUI();
+    envoyerMessage(`Je reprends l'enquête. Je suis ${G.prenom}, ${PROFILS_LABEL[G.enqueteur]}, Acte ${G.acte}, ${G.heure}, à ${G.lieu}. ${G.indices.length} indice(s) trouvé(s). Résume brièvement la situation et propose mes 4 choix.`);
   };
-  document.getElementById('btn-nouvelle').onclick=()=>{reinitialiser();document.getElementById('ecran-reprise').style.display='none';miseAJourUI();envoyerPremier();};
+  document.getElementById('btn-nouvelle').onclick=()=>{reinitialiser();document.getElementById('ecran-reprise').style.display='none';if(G.mode==='boutons')document.getElementById('input-joueur').style.display='none';miseAJourUI();envoyerPremier();};
 }
 
-function sauvegarder(){const d={prenom:G.prenom,nom:G.nom,age:G.age,origine:G.origine,profil:G.profil,acte:G.acte,lieu:G.lieu,nbChoix:G.nbChoix,nbScenes:G.nbScenes,indices:G.indices,stats:G.stats,score:G.score,historique:G.historique.slice(-20),date:new Date().toISOString()};localStorage.setItem('enigma_save',JSON.stringify(d));}
+function sauvegarder(){
+  const d={prenom:G.prenom,enqueteur:G.enqueteur,mode:G.mode,acte:G.acte,lieu:G.lieu,heure:G.heure,nbChoix:G.nbChoix,observation:G.observation,psychologie:G.psychologie,persuasion:G.persuasion,deduction:G.deduction,mefiance:G.mefiance,credit:G.credit,indices:G.indices,suspects:G.suspects,inventaire:G.inventaire,historique:G.historique.slice(-20),adminMode:G.adminMode,date:new Date().toISOString()};
+  localStorage.setItem('enigma_save',JSON.stringify(d));
+}
 function charger(){const d=localStorage.getItem('enigma_save');if(!d)return null;try{return JSON.parse(d);}catch(e){return null;}}
-function fromSave(s){Object.assign(G,{prenom:s.prenom,nom:s.nom,age:s.age,origine:s.origine,profil:s.profil,acte:s.acte,lieu:s.lieu,nbChoix:s.nbChoix||0,nbScenes:s.nbScenes||0,indices:s.indices||[],score:s.score||0,historique:s.historique||[]});if(s.stats)Object.assign(G.stats,s.stats);}
-function reinitialiser(){G.acte=1;G.lieu='Marseille';G.nbChoix=0;G.nbScenes=0;G.indices=[];G.historique=[];G.score=0;G.stats={physique:100,mental:100,pression:0,comprehension:0};}
+function fromSave(s){Object.assign(G,{prenom:s.prenom,enqueteur:s.enqueteur,mode:s.mode||'boutons',acte:s.acte||'I',lieu:s.lieu||'Villa Morel',heure:s.heure||'18h00',nbChoix:s.nbChoix||0,observation:s.observation||50,psychologie:s.psychologie||40,persuasion:s.persuasion||40,deduction:s.deduction||50,mefiance:s.mefiance||0,credit:s.credit||70,indices:s.indices||[],suspects:s.suspects||[],inventaire:s.inventaire||[],historique:s.historique||[],adminMode:s.adminMode||false});}
+function reinitialiser(){G.acte='I';G.lieu='Villa Morel';G.heure='18h00';G.nbChoix=0;G.mefiance=0;G.credit=70;G.indices=[];G.suspects=[];G.inventaire=[];G.historique=[];const sk=PROFILS[G.enqueteur];if(sk){G.observation=sk.observation;G.psychologie=sk.psychologie;G.persuasion=sk.persuasion;G.deduction=sk.deduction;}}
 function autoSave(){if(G.saveTO)clearTimeout(G.saveTO);setSI('cours');G.saveTO=setTimeout(()=>{sauvegarder();setSI('ok');setTimeout(()=>setSI(''),2000);},500);}
 function setSI(e){const el=document.getElementById('sauv-ind');el.className='sauv'+(e?' '+e:'');el.textContent=e==='cours'?'↑ sauvegarde...':e==='ok'?'✓ sauvegardé':'● prêt';}
 
 function toggleEqPanel(){const p=document.getElementById('eq-panel');const b=document.querySelector('.eq-panel-btn');p.classList.toggle('open');if(b)b.textContent=p.classList.contains('open')?'Dossier ▴':'Dossier ▾';}
 
 function miseAJourUI(){
-  document.getElementById('acte-tag').textContent='Acte '+G.acte;
   const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
-  const setW=(id,w,col)=>{const e=document.getElementById(id);if(e){e.style.width=Math.min(100,w)+'%';if(col)e.style.background=col;}};
-  set('eq-nom',`${G.prenom} ${G.nom}`);set('eq-acte',`${G.acte} / 7`);set('eq-scenes',G.nbScenes);set('eq-lieu',G.lieu);
-  const s=G.stats;
-  set('eq-physique',s.physique);setW('eq-b-physique',s.physique,s.physique>50?'var(--bleu)':s.physique>25?'var(--or)':'var(--rouge)');
-  set('eq-mental',s.mental);setW('eq-b-mental',s.mental,s.mental>50?'var(--bleu)':s.mental>25?'var(--or)':'var(--rouge)');
-  set('eq-pression',s.pression);setW('eq-b-pression',Math.min(100,s.pression),'var(--rouge)');
-  set('eq-comprehension',s.comprehension);setW('eq-b-comprehension',Math.min(100,s.comprehension),'var(--or)');
-  const eqInd=document.getElementById('eq-indices');
-  if(eqInd)eqInd.innerHTML=G.indices.length?G.indices.map(it=>`<div class="eq-row"><span class="eq-key">▸ ${it}</span></div>`).join(''):'<div style="font-size:10px;color:var(--texte-dim);font-style:italic;">Aucun indice encore</div>';
-  document.getElementById('e-nom').textContent=`${G.prenom} ${G.nom}`;document.getElementById('e-acte').textContent=`Acte ${G.acte} · ${G.lieu}`;
-  document.getElementById('d-acte').textContent=`${G.acte} / 7`;document.getElementById('d-scenes').textContent=G.nbScenes;document.getElementById('d-lieu').textContent=G.lieu;
-  document.getElementById('s-physique').textContent=s.physique;document.getElementById('b-physique').style.width=s.physique+'%';document.getElementById('b-physique').style.background=s.physique>50?'var(--bleu)':s.physique>25?'var(--or)':'var(--rouge)';
-  document.getElementById('s-mental').textContent=s.mental;document.getElementById('b-mental').style.width=s.mental+'%';document.getElementById('b-mental').style.background=s.mental>50?'var(--bleu)':s.mental>25?'var(--or)':'var(--rouge)';
-  document.getElementById('s-pression').textContent=s.pression;document.getElementById('b-pression').style.width=Math.min(100,s.pression)+'%';
-  document.getElementById('s-comprehension').textContent=s.comprehension;document.getElementById('b-comprehension').style.width=Math.min(100,s.comprehension)+'%';
-  const indEl=document.getElementById('indices-liste');
-  if(G.indices.length){indEl.innerHTML=G.indices.map(it=>`<div class="indice-item">▸ ${it}</div>`).join('');}else{indEl.innerHTML='<div class="indice-vide">Aucun indice encore</div>';}
+  const setW=(id,w,col)=>{const e=document.getElementById(id);if(e){e.style.width=Math.max(0,Math.min(100,w))+'%';if(col)e.style.background=col;}};
+  document.getElementById('dossier-badge').textContent='Acte '+G.acte;
+  set('eq-nom',G.prenom);set('eq-profil',PROFILS_LABEL[G.enqueteur]||'—');
+  set('eq-acte',G.acte);set('eq-lieu',G.lieu);set('eq-heure',G.heure);set('eq-choix',G.nbChoix);
+  set('eq-observation',G.observation);setW('eq-b-observation',G.observation,'var(--marron)');
+  set('eq-psychologie',G.psychologie);setW('eq-b-psychologie',G.psychologie,'var(--doré)');
+  set('eq-persuasion',G.persuasion);setW('eq-b-persuasion',G.persuasion,'var(--vert)');
+  set('eq-deduction',G.deduction);setW('eq-b-deduction',G.deduction,'#6a4a8a');
+  set('eq-mefiance',G.mefiance);setW('eq-b-mefiance',G.mefiance,'var(--rouge)');
+  set('eq-credit',G.credit);setW('eq-b-credit',G.credit,'var(--doré)');
+  const indEl=document.getElementById('eq-indices');
+  if(indEl)indEl.innerHTML=G.indices.length?G.indices.map(i=>`<div class="eq-row"><span class="eq-key" style="font-size:10px;">◆ ${i}</span></div>`).join(''):'<div style="font-size:11px;color:var(--texte-dim);font-style:italic;">Aucun</div>';
+  const susEl=document.getElementById('eq-suspects');
+  if(susEl)susEl.innerHTML=G.suspects.length?G.suspects.map(s=>`<div class="eq-row"><span class="eq-key" style="font-size:10px;">• ${s}</span></div>`).join(''):'<div style="font-size:11px;color:var(--texte-dim);font-style:italic;">Non identifiés</div>';
 }
 
 function construireSP(){
-  const s=G.stats;
-  const profilDesc=G.profil==='intuitif'?'Intuitif — sent les choses avant de les comprendre, en avance sur les preuves, parfois dans le vide':G.profil==='methodique'?'Méthodique — ne croit que ce qu\'il peut prouver, lent mais solide':'Psychologue — cherche à comprendre le tueur, voit les patterns, vulnérable à la manipulation du Sphinx';
+  const profilDesc={
+    psychologue:'Psychologue clinicien. Tu lis les microexpressions, les contradictions, les non-dits. Mais tu connais la victime — et ça te rend suspect.',
+    'ancien-flic':'Ancien inspecteur de police. Méthode, procédure, timeline. Moins intuitif mais rigoureux. Tu sais aussi que la police locale va arriver.',
+    journaliste:'Journaliste d\'investigation. Tu étais là pour un reportage sur la famille Morel. Ta présence n\'est pas innocente — et ils le savent.',
+    medecin:'Médecin légiste à la retraite. Tu vois ce que personne d\'autre ne voit sur le corps. Mais tu connaissais la victime personnellement.'
+  };
   return `=== ENIGMA — CONTEUR ===
-Tu es le Conteur d'Enigma. Tu es un auteur, pas un assistant. TOUJOURS en français. Deuxième personne.
+Tu es le Conteur d'Enigma. Tu es un auteur, pas un assistant. Tu ne sors JAMAIS du personnage. Tu réponds TOUJOURS en français. Deuxième personne.
 
 === VOIX LITTÉRAIRE ===
-Jean-Claude Izzo pour Marseille : la ville vue de l'intérieur, les quartiers, les odeurs, les codes implicites. Jamais de Marseille touristique.
-Thomas Harris pour le Sphinx : un tueur qui pense mieux que ses poursuivants, des énigmes cohérentes.
-Donna Leon pour l'enquête : la procédure, les tensions avec la hiérarchie, le temps qui passe.
-Mots INTERDITS : soudain, immédiatement, incroyable, impressionnant.
+Agatha Christie pour la structure : chaque personnage a un mobile, une opportunité, un secret. Les fausses pistes sont intentionnelles. La révélation finale recontextualise tout.
+Patricia Highsmith pour la psychologie : personne n'est entièrement innocent, pas même l'enquêteur. La frontière entre observer et manipuler est mince.
+Henry James pour l'atmosphère : la villa, la pluie, les silences à table, les regards — l'ambiance est aussi lourde que les preuves.
+
+RÈGLES : Un détail sensoriel par scène. Mots INTERDITS : soudain, immédiatement, incroyable, impressionnant. Les suspects mentent, mais intelligemment. Jamais deux fausses pistes consécutives sans un vrai indice.
 
 === ENQUÊTEUR ===
-${G.prenom} ${G.nom} | ${G.age} ans | Commandant SRPJ Marseille
-Origine : ${G.origine} | Profil : ${profilDesc}
-Acte : ${G.acte}/7 | Lieu : ${G.lieu} | Scènes : ${G.nbScenes}
-Indices collectés : ${G.indices.length>0?G.indices.join(' / '):'Aucun'}
+Prénom : ${G.prenom} | Profil : ${PROFILS_LABEL[G.enqueteur]||G.enqueteur}
+${profilDesc[G.enqueteur]||''}
+Acte : ${G.acte} | Lieu : ${G.lieu} | Heure : ${G.heure} | Choix : ${G.nbChoix}
+Observation : ${G.observation}/100 | Psychologie : ${G.psychologie}/100 | Persuasion : ${G.persuasion}/100 | Déduction : ${G.deduction}/100
+Méfiance sur toi : ${G.mefiance}/100 | Crédibilité : ${G.credit}/100
+Indices : ${G.indices.length?G.indices.join(', '):'Aucun'}
+Suspects identifiés : ${G.suspects.length?G.suspects.join(', '):'Aucun'}
 
-=== ÉTAT ===
-Physique : ${s.physique}/100 | Mental : ${s.mental}/100
-Pression hiérarchie : ${s.pression}/100 | Compréhension du Sphinx : ${s.comprehension}/100
+=== LA VILLA MOREL ===
+Villa isolée, Provence, fin d'automne. Pas de réseau téléphonique. Route coupée par les pluies.
+La victime : ÉDOUARD MOREL, 68 ans, patriarche. Trouvé mort dans son bureau, 17h30.
+Cause de mort apparente : chute. Mais la position du corps ne colle pas.
 
-=== LE SPHINX ===
-Tueur en série à Marseille. Il met en scène ses meurtres comme des messages. Il laisse des énigmes.
-Son identité NE SE RÉVÈLE PAS avant l'acte 5.
-Quand il communique directement : [ SPHINX ] message [ FIN SPHINX ]
-Quand scène de crime : [ SCENE ] description [ FIN SCENE ]
+=== LES SEPT INVITÉS ===
+1. CAMILLE MOREL, 42 ans — fille cadette. Héritière principale. Froide.
+2. NICOLAS MOREL, 45 ans — fils aîné. Des dettes. Besoin de l'héritage.
+3. BÉATRICE FONTAINE, 70 ans — meilleure amie de la défunte épouse. Sait des choses.
+4. THOMAS RICARD, 35 ans — avocat de la famille. Trop calme.
+5. AMBRE KASAI, 28 ans — assistante personnelle d'Édouard. Nouvelle. Silencieuse.
+6. GILLES MAURIN, 55 ans — associé commercial. Conflit récent avec Édouard.
+7. PAULINE VERNET, 31 ans — restauratrice d'art. Raison de présence : inconnue.
 
-=== STRUCTURE ===
-Acte 1 — Premier message : corps au Vieux-Port | Acte 2 — Second meurtre | Acte 3 — Fausses pistes
-Acte 4 — Message personnel | Acte 5 — Révélation partielle | Acte 6 — La traque | Acte 7 — Confrontation finale
+=== LE SECRET (NE PAS RÉVÉLER AVANT ACTE IV) ===
+Édouard Morel n'est pas tombé. Il a été poussé par THOMAS RICARD qui falsifiait son testament depuis 18 mois. AMBRE savait. Elle n'est pas innocente mais elle ne l'a pas tué.
 
-=== FINS ===
-FIN 1 — ARRESTATION : score >= 8 → [ FIN: ARRESTATION ]
-FIN 2 — ÉCHEC : score entre -3 et 7 → [ FIN: ECHEC ]
-FIN 3 — MORT : score <= -4 → [ FIN: MORT ]
+=== ACTES ===
+Acte I — La découverte (18h–20h) | Acte II — Les premiers interrogatoires (20h–23h) | Acte III — La nuit (23h–6h) | Acte IV — Les contradictions (6h–12h) | Acte V — L'accusation (12h)
 
 === RÈGLES ABSOLUES ===
-L'IA ne protège jamais le joueur. Mémoire totale. Causalité stricte. Géographie Marseille précise et constante. Sauvegarde stricte.
+L'IA NE RÉVÈLE JAMAIS LE COUPABLE AVANT L'ACTE V. Les fausses pistes sont réelles — elles ne disparaissent pas. La méfiance sur l'enquêteur monte si ses questions semblent trop intrusives. Le crédit baisse si l'enquêteur accuse sans preuves suffisantes.
 
-=== FORMAT ===
-Narration (120-180 mots)
-[ Stats si pertinent ]
+=== FORMAT RÉPONSE — RÈGLE ABSOLUE ET NON NÉGOCIABLE ===
+Chaque réponse DOIT se terminer par exactement ce bloc, sans exception :
+
 [ CHOIX ]
 1 — option précise
 2 — option précise
 3 — option précise
 4 — option précise
 
-=== MISES À JOUR ===
-[ Physique ±X ] [ Mental ±X ] [ Pression ±X ] [ Compréhension ±X ]
-[ Score +1 ] ou [ Score -1 ] — invisible pour le joueur
-[ Acte: X ] | [ Lieu: NomLieu ] | [ Indice: description courte ]
+INTERDICTIONS STRICTES :
+- Ne JAMAIS omettre le bloc [ CHOIX ]
+- Ne JAMAIS utiliser autre chose que le tiret long — (—) entre le numéro et le texte
+- Ne JAMAIS numéroter autrement que 1, 2, 3, 4
+- Ne JAMAIS mettre de texte après les 4 choix sauf les balises système
+- Les balises [ Observation ±X ] [ Méfiance ±X ] etc. vont TOUJOURS avant [ CHOIX ]
+- Ne JAMAIS reformater ou modifier cette structure
+
+=== MISE À JOUR STATS ===
+[ Observation ±X ] [ Psychologie ±X ] [ Persuasion ±X ] [ Déduction ±X ]
+[ Méfiance ±X ] [ Crédit ±X ]
+[ Acte: X ] [ Lieu: NomLieu ] [ Heure: XhXX ]
+[ Indice: description courte ] → ajouter à la liste d'indices
+[ Suspect: Nom ] → ajouter à la liste de suspects
 
 === PAYWALL ===
-Quand nbChoix atteint ${PAYWALL} : insère [ PAYWALL ]`.trim();
+Quand nbChoix atteint ${PAYWALL}, insère : [ PAYWALL ]`.trim();
 }
 
 function parserReponse(texte){
   const mises=[];
-  [['Physique','physique'],['Mental','mental'],['Pression','pression'],['Compréhension','comprehension']].forEach(([label,key])=>{
-    texte=texte.replace(new RegExp(`\\[\\s*${label}\\s*([+\\-])(\\d+)\\s*\\]`,'gi'),(_,op,v)=>{const n=parseInt(v);G.stats[key]=Math.max(0,Math.min(100,G.stats[key]+(op==='-'?-n:n)));mises.push(`[${label}${op}${n}]`);return '';});
+  const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+  const stats={
+    'Observation':'observation','Psychologie':'psychologie',
+    'Persuasion':'persuasion','D[eé]duction':'deduction',
+    'M[eé]fiance':'mefiance','Cr[eé]dit':'credit'
+  };
+  Object.entries(stats).forEach(([pattern,key])=>{
+    texte=texte.replace(new RegExp(`\\[\\s*${pattern}\\s*([+\\-\u2014\u2013])(\\d+)\\s*\\]`,'gi'),(_,op,v)=>{
+      const n=parseInt(v);const signe=(op==='-'||op==='—'||op==='–')?-1:1;
+      G[key]=clamp(G[key]+signe*n,0,100);mises.push(`[${key}${op}${n}]`);return '';
+    });
   });
-  texte=texte.replace(/\[\s*Score\s*([+\-])(\d+)\s*\]/gi,(_,op,v)=>{const n=parseInt(v);G.score+=(op==='-'?-n:n);return '';});
-  texte=texte.replace(/\[\s*Acte\s*:\s*(\d+)\s*\]/gi,(_,n)=>{G.acte=parseInt(n);mises.push(`[Acte ${n}]`);return '';});
+  texte=texte.replace(/\[\s*Acte\s*:\s*([^\]]+)\s*\]/gi,(_,a)=>{G.acte=a.trim();document.getElementById('dossier-badge').textContent='Acte '+G.acte;mises.push(`[Acte ${a.trim()}]`);return '';});
   texte=texte.replace(/\[\s*Lieu\s*:\s*([^\]]+)\s*\]/gi,(_,l)=>{G.lieu=l.trim();mises.push(`[${l.trim()}]`);return '';});
-  texte=texte.replace(/\[\s*Indice\s*:\s*([^\]]+)\s*\]/gi,(_,ind)=>{const item=ind.trim();if(!G.indices.includes(item))G.indices.push(item);mises.push(`[Indice collecté]`);return '';});
-  texte=texte.replace(/\[\s*SPHINX\s*\]([\s\S]*?)\[\s*FIN SPHINX\s*\]/gi,(_,contenu)=>`<div class="sphinx-message"><div class="sphinx-header">Message du Sphinx</div><div class="sphinx-texte">${contenu.trim()}</div></div>`);
-  texte=texte.replace(/\[\s*SCENE\s*\]([\s\S]*?)\[\s*FIN SCENE\s*\]/gi,(_,contenu)=>`<div class="scene-rapport"><div class="scene-header">Rapport de scène — Confidentiel</div><div class="scene-texte">${contenu.trim()}</div></div>`);
-  if(/\[\s*FIN\s*:\s*ARRESTATION\s*\]/i.test(texte)){texte=texte.replace(/\[\s*FIN\s*:\s*ARRESTATION\s*\]/gi,'');setTimeout(()=>declencherFin('arrestation'),800);}
-  if(/\[\s*FIN\s*:\s*ECHEC\s*\]/i.test(texte)){texte=texte.replace(/\[\s*FIN\s*:\s*ECHEC\s*\]/gi,'');setTimeout(()=>declencherFin('echec'),800);}
-  if(/\[\s*FIN\s*:\s*MORT\s*\]/i.test(texte)){texte=texte.replace(/\[\s*FIN\s*:\s*MORT\s*\]/gi,'');setTimeout(()=>declencherFin('mort'),800);}
+  texte=texte.replace(/\[\s*Heure\s*:\s*([^\]]+)\s*\]/gi,(_,h)=>{G.heure=h.trim();mises.push(`[${h.trim()}]`);return '';});
+  texte=texte.replace(/\[\s*Indice\s*:\s*([^\]]+)\s*\]/gi,(_,ind)=>{const i=ind.trim();if(!G.indices.includes(i))G.indices.push(i);mises.push(`[◆${i.slice(0,20)}]`);return '';});
+  texte=texte.replace(/\[\s*Suspect\s*:\s*([^\]]+)\s*\]/gi,(_,sus)=>{const s=sus.trim();if(!G.suspects.includes(s))G.suspects.push(s);mises.push(`[•${s}]`);return '';});
+  texte=texte.replace(/\[\s*([^\]]+?)\s*ajoutée?s?\s*à\s*l['']inventaire\s*\]/gi,(_,it)=>{const item=it.trim();if(!G.inventaire.includes(item))G.inventaire.push(item);mises.push(`[${item}→inv]`);return '';});
   if(!G.adminMode&&/\[\s*PAYWALL\s*\]/i.test(texte)){texte=texte.replace(/\[\s*PAYWALL\s*\]/gi,'');setTimeout(declencherPaywall,600);}
   let htmlChoix='';
-  const mChoix=texte.match(/\[\s*CHOIX\s*\]([\s\S]*?)(?=\n\n|\n\[|$)/i);
-  if(mChoix){texte=texte.replace(mChoix[0],'').trim();const lignes=mChoix[0].split('\n').filter(l=>/^\d[\s—\-]/.test(l.trim()));if(lignes.length){window._choix=lignes.map(l=>l.replace(/^\d\s*[—\-]\s*/,'').trim());htmlChoix='<div class="choix-bloc"><div class="choix-titre">Que faites-vous ?</div>'+window._choix.map((t,i)=>`<button class="choix-btn" onclick="envoyerChoix(${i})">${lignes[i].trim()}</button>`).join('')+'</div>';}}
+  const mChoix=texte.match(/\[\s*CHOIX\s*\]([\s\S]*)/i);
+  if(mChoix){
+    texte=texte.replace(mChoix[0],'').trim();
+    const lignes=mChoix[1].split('\n').filter(l=>/^\d[\s\u2014\u2013\-]/.test(l.trim()));
+    if(lignes.length){
+      window._choix=lignes.map(l=>l.replace(/^\d\s*[\u2014\u2013\-]\s*/,'').trim());
+      htmlChoix='<div class="choix-bloc"><div class="choix-titre">Que faites-vous ?</div>'+window._choix.map((t,i)=>`<button class="choix-btn" onclick="envoyerChoix(${i})">${lignes[i].trim()}</button>`).join('')+'</div>';
+    }
+  }
   miseAJourUI();
-  const ps=texte.trim().split(/\n+/).filter(l=>l.trim()).map(l=>{if(l.startsWith('<'))return l;return `<p>${l.trim()}</p>`;}).join('');
+  const ps=texte.trim().split(/\n+/).filter(l=>l.trim()).map(l=>`<p>${l.trim()}</p>`).join('');
   const su=mises.length?`<div class="maj-stats">${mises.join('  ')}</div>`:'';
   return ps+su+htmlChoix;
 }
 
-function declencherFin(type){
-  const fins={
-    arrestation:{titre:'Arrestation',texte:'Le Sphinx est en garde à vue. L\'enquête est terminée — officiellement. Mais quelque chose qu\'il a dit lors de son arrestation continue de tourner dans votre tête.'},
-    echec:{titre:'Il a disparu',texte:'Le Sphinx est parti. Il a laissé un dernier message sur votre bureau. Une seule ligne. Vous savez maintenant ce qu\'il voulait vraiment.'},
-    mort:{titre:'Dossier clos',texte:'Il avait tout prévu. Chaque choix que vous avez fait depuis le début — il les avait anticipés. Le dossier Enigma est classé.'}
-  };
-  const fin=fins[type];
-  ajouterRecit(`<div class="fin-bloc"><div class="fin-type">— Fin de l'enquête —</div><div class="fin-titre">${fin.titre}</div><div class="fin-texte">${fin.texte}</div></div>`);
-  document.querySelectorAll('.choix-btn').forEach(b=>b.disabled=true);
-}
-
 function declencherPaywall(){
-  ajouterRecit(`<div style="border:2px solid var(--bleu);padding:20px;margin:8px 0;text-align:center;">
-    <p style="font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--bleu);text-transform:uppercase;margin-bottom:10px;">— Accès limité —</p>
-    <p style="font-family:var(--serif);font-size:14px;margin-bottom:16px;">Tu as atteint la limite gratuite d'Enigma. Pour continuer l'enquête jusqu'à la confrontation finale, passe à l'abonnement Récit Games.</p>
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-      <button onclick="window.location.href='https://buy.stripe.com/dRmdR90q9fKv8ku2jq04801'" style="background:var(--bleu);border:none;color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:2px;padding:11px 24px;cursor:pointer;text-transform:uppercase;">S'abonner — 7€/mois</button>
-      <button onclick="afficherSaisieCode()" style="background:none;border:2px solid var(--border2);color:var(--texte-dim);font-family:var(--mono);font-size:10px;letter-spacing:2px;padding:11px 20px;cursor:pointer;text-transform:uppercase;">J'ai un code</button>
+  ajouterRecit(`<div style="border-left:2px solid var(--marron-dim);padding-left:14px;background:var(--bg2);padding:14px 14px 14px 18px;margin:8px 0;">
+    <p style="font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--marron);text-transform:uppercase;margin-bottom:8px;">— Extrait limité —</p>
+    <p>Tu as atteint la limite gratuite d'Enigma. Pour résoudre le meurtre et démasquer le coupable, passe à l'abonnement Récit Games.</p>
+    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+      <button onclick="window.location.href='https://buy.stripe.com/dRmdR90q9fKv8ku2jq04801'" style="background:var(--marron);border:none;color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:2px;padding:11px 20px;cursor:pointer;text-transform:uppercase;">S'abonner — 7€/mois</button>
+      <button onclick="afficherSaisieCode()" style="background:none;border:1px solid var(--border2);color:var(--texte-dim);font-family:var(--mono);font-size:10px;letter-spacing:2px;padding:11px 20px;cursor:pointer;text-transform:uppercase;">J'ai un code</button>
     </div>
   </div>`);
+  document.getElementById('btn-envoyer').disabled=true;document.getElementById('input-joueur').disabled=true;
 }
-
 function afficherSaisieCode(){
   const overlay=document.createElement('div');overlay.id='code-overlay';
-  overlay.style.cssText='position:fixed;inset:0;background:rgba(26,58,106,0.9);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;';
-  overlay.innerHTML=`<div style="background:var(--bg2);border-top:4px solid var(--bleu);padding:36px 32px;max-width:400px;width:100%;text-align:center;"><div style="font-family:var(--mono);font-size:18px;font-weight:500;color:var(--bleu);margin-bottom:8px;">Code abonnement</div><div style="font-size:12px;color:var(--texte-dim);margin-bottom:24px;font-family:var(--mono);">Entrez le code reçu après votre abonnement Récit Games.</div><input id="code-input" type="text" placeholder="RG-XXXX-XXXX" style="width:100%;background:var(--bg3);border:none;border-bottom:2px solid var(--border2);color:var(--texte-clair);font-family:var(--mono);font-size:16px;padding:12px 0;text-align:center;letter-spacing:3px;text-transform:uppercase;outline:none;margin-bottom:8px;" oninput="this.value=this.value.toUpperCase()"/><div id="code-msg" style="font-size:12px;color:var(--rouge);min-height:18px;margin-bottom:16px;font-family:var(--mono);"></div><button id="code-btn" onclick="validerCode()" style="width:100%;background:var(--bleu);color:#fff;border:none;padding:14px;font-family:var(--mono);font-size:11px;letter-spacing:2px;cursor:pointer;margin-bottom:10px;text-transform:uppercase;">Valider</button><button onclick="document.getElementById('code-overlay').remove()" style="background:none;border:none;color:var(--texte-dim);font-size:11px;cursor:pointer;text-decoration:underline;font-family:var(--mono);">Annuler</button></div>`;
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(26,21,16,0.9);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;';
+  overlay.innerHTML=`<div style="background:var(--bg);border:1px solid var(--border2);padding:36px 32px;max-width:400px;width:100%;text-align:center;"><div style="font-family:var(--serif);font-size:22px;font-style:italic;color:var(--texte-clair);margin-bottom:8px;">Code d'abonnement</div><div style="font-size:12px;color:var(--texte-dim);margin-bottom:24px;font-family:var(--mono);">Code reçu après abonnement Récit Games.</div><input id="code-input" type="text" placeholder="RG-XXXX-XXXX" style="width:100%;background:#fff;border:1px solid var(--border);border-bottom:2px solid var(--marron-dim);color:var(--texte-clair);font-family:var(--mono);font-size:16px;padding:12px;text-align:center;letter-spacing:3px;text-transform:uppercase;outline:none;margin-bottom:8px;" oninput="this.value=this.value.toUpperCase()"/><div id="code-msg" style="font-size:12px;color:var(--rouge);min-height:18px;margin-bottom:16px;font-family:var(--mono);"></div><button id="code-btn" onclick="validerCode()" style="width:100%;background:var(--marron);color:#fff;border:none;padding:14px;font-family:var(--mono);font-size:11px;letter-spacing:2px;cursor:pointer;margin-bottom:10px;text-transform:uppercase;">Valider</button><button onclick="document.getElementById('code-overlay').remove()" style="background:none;border:none;color:var(--texte-dim);font-size:11px;cursor:pointer;text-decoration:underline;font-family:var(--mono);">Annuler</button></div>`;
   document.body.appendChild(overlay);setTimeout(()=>document.getElementById('code-input')?.focus(),100);
 }
-
 async function validerCode(){
   const code=(document.getElementById('code-input')?.value||'').trim().toUpperCase();
   const msgEl=document.getElementById('code-msg');const btn=document.getElementById('code-btn');
-  if(!code||code.length<8){msgEl.textContent='Entrez votre code complet.';return;}
+  if(!code||code.length<8){msgEl.textContent='Code incomplet.';return;}
   btn.disabled=true;btn.textContent='Vérification...';msgEl.textContent='';
   try{
     const res=await fetch('https://recitgames-api.vercel.app/api/verify-code',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code})});
     const data=await res.json();
-    if(data.valid){G.nbChoix=0;if(data.admin)G.adminMode=true;document.getElementById('code-overlay')?.remove();ajouterRecit(`<p style="color:#2a6a2a;font-family:var(--mono);font-size:11px;letter-spacing:2px;">✓ ${data.admin?'Accès admin activé.':'Code validé. L\'enquête continue.'}</p>`);}
+    if(data.valid){G.nbChoix=0;if(data.admin)G.adminMode=true;document.getElementById('btn-envoyer').disabled=false;document.getElementById('input-joueur').disabled=false;document.getElementById('code-overlay')?.remove();ajouterRecit(`<p style="color:var(--vert);font-family:var(--mono);font-size:11px;letter-spacing:2px;">✓ Code validé. L'enquête continue.</p>`);}
     else{msgEl.textContent='Code invalide.';btn.disabled=false;btn.textContent='Valider';}
   }catch(err){msgEl.textContent='Erreur de connexion.';btn.disabled=false;btn.textContent='Valider';}
 }
 
-// ── STREAMING via proxy Vercel ──
 async function streamerMessage(msg){
   G.historique.push({role:'user',content:msg});
   const recit=document.getElementById('recit');
-  const entree=document.createElement('div');entree.className='entree';
-  recit.appendChild(entree);recit.scrollTop=entree.offsetTop-20;
+  const entree=document.createElement('div');entree.className='entree';recit.appendChild(entree);recit.scrollTop=entree.offsetTop-20;
   const sp=document.createElement('p');entree.appendChild(sp);
   const cur=document.createElement('span');cur.className='curseur';sp.appendChild(cur);
   let full='';
   try{
-    const res=await fetch('/api/chat',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({system:construireSP(),messages:G.historique,max_tokens:1200})
-    });
+    const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:construireSP(),messages:G.historique,max_tokens:1000})});
     if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error||`Erreur ${res.status}`);}
-    const reader=res.body.getReader();const dec=new TextDecoder('utf-8',{fatal:false});
-    let buffer='';
-    while(true){
-      const{done,value}=await reader.read();if(done)break;
-      buffer+=dec.decode(value,{stream:true});
-      const lignes=buffer.split('\n');buffer=lignes.pop();
-      for(const ligne of lignes){
-        if(!ligne.startsWith('data: '))continue;
-        const d=ligne.slice(6).trim();if(d==='[DONE]')continue;
-        try{const p=JSON.parse(d);if(p.type==='content_block_delta'&&p.delta?.text){full+=p.delta.text;sp.textContent=full;sp.appendChild(cur);}}catch(e){}
-      }
-    }
-    cur.remove();
-    G.historique.push({role:'assistant',content:full});
-    if(G.historique.length>20)G.historique=G.historique.slice(-20);
-    entree.innerHTML=parserReponse(full);
-    autoSave();
-  }catch(err){
-    cur.remove();
-    entree.innerHTML=`<p style="color:var(--rouge);font-family:var(--mono);font-size:12px;">Erreur : ${err.message}</p>`;
-  }
+    const reader=res.body.getReader();const dec=new TextDecoder('utf-8',{fatal:false});let buffer='';
+    while(true){const{done,value}=await reader.read();if(done)break;buffer+=dec.decode(value,{stream:true});const lignes=buffer.split('\n');buffer=lignes.pop();for(const ligne of lignes){if(!ligne.startsWith('data: '))continue;const d=ligne.slice(6).trim();if(d==='[DONE]')continue;try{const p=JSON.parse(d);if(p.type==='content_block_delta'&&p.delta?.text){full+=p.delta.text;sp.textContent=full;sp.appendChild(cur);}}catch(e){}}}
+    cur.remove();G.historique.push({role:'assistant',content:full});if(G.historique.length>20)G.historique=G.historique.slice(-20);
+    entree.innerHTML=parserReponse(full);autoSave();
+  }catch(err){cur.remove();entree.innerHTML=`<p style="color:var(--rouge);font-family:var(--mono);font-size:12px;">Erreur : ${err.message}</p>`;}
 }
 function ajouterRecit(html){const recit=document.getElementById('recit');const e=document.createElement('div');e.className='entree';e.innerHTML=html;recit.appendChild(e);recit.scrollTop=recit.scrollHeight;}
 async function envoyerMessage(msg){
   if(!msg.trim())return;
+  const btn=document.getElementById('btn-envoyer');const inp=document.getElementById('input-joueur');
+  btn.disabled=true;if(G.mode!=='boutons')inp.disabled=true;
   const recit=document.getElementById('recit');
   if(recit.children.length>0){const sep=document.createElement('div');sep.className='entree';sep.innerHTML='<hr class="sep"/>';recit.appendChild(sep);}
   ajouterRecit(`<div class="action-joueur">▸ ${msg}</div>`);
-  if(!G.adminMode)G.nbChoix++;G.nbScenes++;
+  inp.value='';if(!G.adminMode)G.nbChoix++;
   await streamerMessage(msg);
+  btn.disabled=false;if(G.mode!=='boutons')inp.disabled=false;
+  if(window.innerWidth>700&&G.mode!=='boutons')inp.focus();
 }
 function envoyerChoix(i){const t=window._choix&&window._choix[i];if(t)envoyerMessage(t);}
 async function envoyerPremier(){
-  miseAJourUI();
-  const msg=`Je commence Enigma. Je suis le commandant ${G.prenom} ${G.nom}, ${G.age} ans, ${G.origine}, profil ${G.profil}. Un corps vient d'être découvert au Vieux-Port de Marseille. Mise en scène délibérée. Commence l'Acte 1.`;
-  await streamerMessage(msg);
+  const msg=`Je commence Enigma. Je suis ${G.prenom}, ${PROFILS_LABEL[G.enqueteur]}. Je suis dans la villa Morel. Édouard Morel vient d'être retrouvé mort dans son bureau. Il est 18h00. Sept personnes présentes. Lance la scène d'introduction, Acte I.`;
+  miseAJourUI();await streamerMessage(msg);
 }
-
-window.addEventListener('load',()=>{
-  const save=charger();
-  if(save&&save.historique&&save.historique.length>0){document.getElementById('btn-reprendre-intro').style.display='block';}
-});
+document.getElementById('btn-envoyer').addEventListener('click',()=>{envoyerMessage(document.getElementById('input-joueur').value);});
+document.getElementById('input-joueur').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();envoyerMessage(e.target.value);}});
+document.getElementById('input-joueur').style.display='none';
+window.addEventListener('load',()=>{const save=charger();if(save&&save.historique&&save.historique.length>0)document.getElementById('btn-reprendre-intro').style.display='block';});
 </script>
 </body>
 </html>
